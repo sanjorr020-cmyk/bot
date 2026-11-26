@@ -35,6 +35,17 @@ export function Footer() {
           </div>
         </div>
 
+        <nav aria-label="Страницы услуг">
+          <h2 className="text-sm font-semibold text-ink">Подробнее</h2>
+          <ul className="mt-4 space-y-2.5 text-sm text-ink-muted">
+            <li><a href="/diagnostika-astana" className="hover:text-ink">Диагностика в Астане</a></li>
+            <li><a href="/remont-generatora-astana" className="hover:text-ink">Ремонт генератора</a></li>
+            <li><a href="/remont-startera-astana" className="hover:text-ink">Ремонт стартера</a></li>
+            <li><a href="/remont-hodovoy-astana" className="hover:text-ink">Ремонт ходовой</a></li>
+            <li><a href="/mitsubishi-astana" className="hover:text-ink">Mitsubishi</a></li>
+          </ul>
+        </nav>
+
         <nav aria-label="Услуги в подвале">
           <h2 className="text-sm font-semibold text-ink">Услуги</h2>
           <ul className="mt-4 space-y-2.5 text-sm text-ink-muted">

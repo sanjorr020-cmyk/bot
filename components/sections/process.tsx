@@ -4,6 +4,14 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ClipboardList, FileText, Search, ShieldCheck, Wrench, type LucideIcon } from 'lucide-react';
 import { Section, SectionHeading } from '@/components/ui/section';
 
+const checklist = [
+  'Считываем ошибки блоков управления, если они есть',
+  'Проверяем узлы, которые связаны с симптомом',
+  'Показываем результат: при желании с фото или видео',
+  'Объясняем причину простыми словами',
+  'Пишем смету: виды работ и запчасти, до начала ремонта',
+];
+
 const steps: { icon: LucideIcon; title: string; text: string }[] = [
   { icon: ClipboardList, title: 'Заявка или звонок', text: 'Опишите проблему в форме, в WhatsApp или по телефону. Подскажем, что делать дальше.' },
   { icon: Search, title: 'Диагностика', text: 'Проверяем автомобиль и находим причину неисправности. Это основа честной сметы.' },
@@ -53,6 +61,17 @@ export function Process() {
           </motion.li>
         ))}
       </ol>
+      <div className="mt-12 rounded-2xl border border-white/[0.08] bg-graphite-900 p-6 sm:p-8">
+        <h3 className="font-display text-lg font-semibold text-ink">Что входит в диагностику</h3>
+        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+          {checklist.map((item) => (
+            <li key={item} className="flex gap-3 text-sm text-ink-muted">
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-steel" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
     </Section>
   );
 }

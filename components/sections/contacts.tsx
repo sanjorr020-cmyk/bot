@@ -3,6 +3,8 @@ import { siteConfig, whatsappLink } from '@/config/site-config';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { TrackedLink } from '@/components/ui/tracked-link';
 import { LeadForm } from '@/components/lead-form';
+import { RouteLinks } from '@/components/route-links';
+import { CopyPhoneButton } from '@/components/copy-phone-button';
 import { InstagramIcon, WhatsAppIcon } from '@/components/icons/brand';
 import { btnSecondary, card } from '@/components/ui/styles';
 
@@ -41,6 +43,9 @@ export function Contacts() {
                 <TrackedLink href={`tel:${phone.href}`} event="phone" location="contacts" className="mt-1 block text-lg font-semibold text-ink hover:text-steel-soft">
                   {phone.display}
                 </TrackedLink>
+                <div className="mt-2">
+                  <CopyPhoneButton />
+                </div>
               </div>
             </div>
 
@@ -60,6 +65,8 @@ export function Contacts() {
                 </dl>
               </div>
             </div>
+
+            <RouteLinks />
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <TrackedLink

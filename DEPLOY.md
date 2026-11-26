@@ -36,6 +36,10 @@
 | `LEAD_EMAIL_TO` | для email-заявок | почта владельца |
 | `LEAD_EMAIL_FROM` | нет | по умолчанию `onboarding@resend.dev` (для демо подходит) |
 | `NEXT_PUBLIC_GA_ID`, `NEXT_PUBLIC_YM_ID` | нет | пусто = аналитика выключена |
+| `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | нет | уведомление о заявке в Telegram |
+| `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` | нет | защита от ботов (нужны оба ключа) |
+
+Важно: до задания `NEXT_PUBLIC_SITE_URL` в sitemap и canonical стоит заглушка `example.kz`.
 
 Без `RESEND_API_KEY` форма работает: заявка пишется в логи Vercel, клиент получает кнопку «Продолжить в WhatsApp».
 
