@@ -1,11 +1,13 @@
 'use client';
 
+import { motion, useReducedMotion } from 'framer-motion';
 import { siteConfig } from '@/config/site-config';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { card } from '@/components/ui/styles';
 
 /** Выбор симптома: карточка открывает форму оценки с заполненной проблемой и описанием. */
 export function Symptoms() {
+  const reduce = useReducedMotion();
   const choose = (problem: string, description: string) => {
     window.dispatchEvent(new CustomEvent('mit:prefill-service', { detail: { problem, description } }));
   };
@@ -19,8 +21,14 @@ export function Symptoms() {
         description="Нажмите на симптом: форма откроется с заполненным типом проблемы. Точную причину определит диагностика."
       />
       <ul className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        {siteConfig.symptoms.map((s) => (
-          <li key={s.id}>
+        {siteConfig.symptoms.map((s, i) => (
+          <motion.li
+            key={s.id}
+            initial={reduce ? undefined : { opacity: 0, y: 16 }}
+            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: (i % 4) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+          >
             <a
               href="#estimate"
               onClick={() => choose(s.problem, s.description)}
@@ -30,7 +38,7 @@ export function Symptoms() {
               <span className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">{s.hint}</span>
               <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">Описать в форме</span>
             </a>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </Section>

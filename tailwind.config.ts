@@ -40,6 +40,10 @@ const config: Config = {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
+        'slide-in-up': {
+          from: { transform: 'translateY(110%)' },
+          to: { transform: 'translateY(0)' },
+        },
         'slice-up': {
           '0%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(-101%)' },
@@ -57,6 +61,7 @@ const config: Config = {
         shimmer: 'shimmer 3s linear infinite',
         'faq-down': 'faq-down 0.25s ease-out',
         'slice-up': 'slice-up 0.9s cubic-bezier(0.22,1,0.36,1) both',
+        'slide-in-up': 'slide-in-up 0.6s cubic-bezier(0.22,1,0.36,1) 1s both',
         'slice-down': 'slice-down 0.9s cubic-bezier(0.22,1,0.36,1) both',
       },
     },

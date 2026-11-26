@@ -10,7 +10,7 @@ export function MobileCta() {
   return (
     <nav
       aria-label="Быстрая связь"
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-graphite-950/90 px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-xl md:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 animate-slide-in-up border-t border-white/10 bg-graphite-950/90 px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 backdrop-blur-xl md:hidden motion-reduce:animate-none"
     >
       <div className="mx-auto flex max-w-md items-stretch gap-2">
         <TrackedLink href={`tel:${siteConfig.phone.href}`} event="phone" location="mobile_bar" className={`${item} text-ink`}>

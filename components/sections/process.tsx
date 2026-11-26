@@ -33,7 +33,15 @@ export function Process() {
       />
 
       <ol className="relative mt-12 grid gap-6 md:grid-cols-5 md:gap-4">
-        <div aria-hidden="true" className="absolute left-6 top-6 hidden h-px w-[calc(100%-3rem)] bg-steel/30 md:block" />
+        <motion.div
+          aria-hidden="true"
+          initial={reduce ? undefined : { scaleX: 0 }}
+          whileInView={reduce ? undefined : { scaleX: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+          style={{ originX: 0 }}
+          className="absolute left-6 top-6 hidden h-px w-[calc(100%-3rem)] bg-steel/30 md:block"
+        />
         {steps.map((step, index) => (
           <motion.li
             key={step.title}
