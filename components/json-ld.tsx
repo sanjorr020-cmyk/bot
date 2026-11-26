@@ -29,7 +29,6 @@ export function JsonLd() {
       : {}),
     areaServed: { '@type': 'City', name: address.city },
     sameAs: [social.instagram.url, social.twoGis.url].filter((u) => !u.includes('REPLACE')),
-    priceRange: '$$', // PLACEHOLDER: уточните ценовой диапазон
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: reputation.rating,

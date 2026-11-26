@@ -29,8 +29,6 @@ export const metadata: Metadata = {
     'ремонт стартера Астана',
     'ремонт ходовой Астана',
     'автоэлектрик Астана',
-    'ремонт Mitsubishi Астана',
-    'ремонт японских авто Астана',
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
