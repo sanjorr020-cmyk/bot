@@ -45,7 +45,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink-muted "
               >
                 <Icon className="h-3.5 w-3.5 text-ink" aria-hidden="true" />
-                {text.split(/(\d[\d,]*)/).map((part, i) => (/\d/.test(part) ? <span key={i} className="text-accent">{part}</span> : <span key={i}>{part}</span>))}
+                <span>{text.split(/(\d[\d,]*(?=[\s,]|$))/).map((part, i) => (/^\d/.test(part) ? <span key={i} className="text-accent">{part}</span> : part))}</span>
               </span>
             ))}
           </motion.div>
