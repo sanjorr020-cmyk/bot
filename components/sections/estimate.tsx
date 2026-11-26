@@ -22,7 +22,7 @@ export function Estimate() {
           <ul className="mt-8 space-y-4">
             {points.map((p) => (
               <li key={p} className="flex gap-3 text-ink-muted">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-steel-soft" aria-hidden="true" />
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-ink-muted" aria-hidden="true" />
                 {p}
               </li>
             ))}

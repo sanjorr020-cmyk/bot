@@ -19,7 +19,7 @@ import {
   type LeadFields,
 } from '@/lib/validation';
 import { TrackedLink } from './ui/tracked-link';
-import { btnPrimary, btnWhatsapp, card } from './ui/styles';
+import { btnWhatsapp, card } from './ui/styles';
 
 type Variant = 'estimate' | 'contact';
 type Status = 'idle' | 'sending' | 'success' | 'error';
@@ -43,8 +43,8 @@ const emptyFields: LeadFields = {
 
 const problemOptions = [...siteConfig.services.map((s) => s.formValue), 'Не знаю, нужна диагностика'];
 const inputClass = (invalid: boolean) =>
-  `mt-1.5 w-full rounded-xl border bg-graphite-950 px-4 py-3 text-[15px] text-ink placeholder:text-ink-dim transition-colors focus:outline-none focus:ring-2 focus:ring-steel/60 ${
-    invalid ? 'border-accent-red/70' : 'border-white/10 hover:border-white/20'
+  `mt-1.5 w-full rounded-xl border bg-graphite-950 px-4 py-3 text-[15px] text-ink placeholder:text-ink-dim transition-colors focus:outline-none focus:ring-2 focus:ring-accent ${
+    invalid ? 'border-ink' : 'border-line hover:border-ink-muted'
   }`;
 
 export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
@@ -162,11 +162,11 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
   if (status === 'success') {
     return (
       <div role="status" aria-live="polite" className={`flex flex-col items-start gap-5 p-6 sm:p-8 ${card}`}>
-        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#25D366]/15 text-[#5BF08F]">
+        <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-line text-ink">
           <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
         </span>
         <div>
-          <h3 className="font-display text-2xl font-semibold text-ink">Заявка отправлена</h3>
+          <h3 className="font-display text-2xl font-bold text-ink">Заявка отправлена</h3>
           <p className="mt-2 text-ink-muted">
             Спасибо, {fields.name || 'мы получили вашу заявку'}. Чтобы быстрее согласовать время и детали,
             продолжите диалог в WhatsApp: текст заявки уже заполнен.
@@ -212,7 +212,7 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
   const describedBy = (key: keyof LeadErrors) => (errors[key] ? `${formId}-${key}-error` : undefined);
   const renderError = (key: keyof LeadErrors) =>
     errors[key] ? (
-      <p id={`${formId}-${key}-error`} className="mt-1.5 text-sm text-accent-red">
+      <p id={`${formId}-${key}-error`} className="mt-1.5 text-sm text-ink">
         {errors[key]}
       </p>
     ) : null;
@@ -221,7 +221,7 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
 
   return (
     <form noValidate onSubmit={submit} className={`relative grid gap-5 p-6 sm:p-8 ${card}`} aria-labelledby={`${formId}-title`}>
-      <h3 id={`${formId}-title`} className="font-display text-xl font-semibold text-ink">
+      <h3 id={`${formId}-title`} className="font-display text-xl font-bold text-ink">
         {isEstimate ? 'Получить оценку' : 'Напишите нам'}
       </h3>
 
@@ -229,7 +229,7 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor={id('brand-choice')} className="text-sm font-medium text-ink">
-              Марка автомобиля <span className="text-accent">*</span>
+              Марка автомобиля <span className="text-ink-muted">*</span>
             </label>
             <select id={id('brand-choice')} value={brandChoice} onChange={chooseBrand} aria-invalid={invalid('brand')} aria-describedby={describedBy('brand')} className={`${inputClass(invalid('brand'))} appearance-none`}>
               <option value="">Выберите</option>
@@ -254,7 +254,7 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
 
           <div className="sm:col-span-2">
             <label htmlFor={id('problem')} className="text-sm font-medium text-ink">
-              Тип проблемы <span className="text-accent">*</span>
+              Тип проблемы <span className="text-ink-muted">*</span>
             </label>
             <select id={id('problem')} name="problem" value={fields.problem} onChange={update('problem')} aria-invalid={invalid('problem')} aria-describedby={describedBy('problem')} className={`${inputClass(invalid('problem'))} appearance-none`}>
               <option value="">Выберите из списка</option>
@@ -267,14 +267,14 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
 
           <div className="sm:col-span-2">
             <label htmlFor={id('description')} className="text-sm font-medium text-ink">
-              Опишите неисправность <span className="text-accent">*</span>
+              Опишите неисправность <span className="text-ink-muted">*</span>
             </label>
             <textarea id={id('description')} name="description" rows={4} placeholder="Когда появилась проблема, какие звуки или ошибки, что уже делали" value={fields.description} onChange={update('description')} aria-invalid={invalid('description')} aria-describedby={describedBy('description')} className={inputClass(invalid('description'))} />
             {renderError('description')}
           </div>
 
-          <details className="sm:col-span-2 rounded-xl border border-white/[0.08] bg-graphite-950/60 p-4">
-            <summary className="cursor-pointer text-sm font-semibold text-ink">Подробнее: модель, год, пробег, фото и запись звука <span className="font-normal text-ink-dim">(необязательно)</span></summary>
+          <details className="sm:col-span-2 rounded-xl border border-line bg-graphite-950 p-4">
+            <summary className="cursor-pointer text-sm font-medium text-ink">Подробнее: модель, год, пробег, фото и запись звука <span className="font-normal text-ink-dim">(необязательно)</span></summary>
             <div className="mt-5 grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor={id('model')} className="text-sm font-medium text-ink">Модель</label>
@@ -321,15 +321,15 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
             <span className="text-sm font-medium text-ink">Фото (необязательно)</span>
             <p className="mt-1 text-xs text-ink-dim">До {MAX_PHOTOS} фото, по 3 МБ каждое. Например, ошибка на приборной панели.</p>
             <div className="mt-2 flex flex-wrap items-center gap-3">
-              <button type="button" onClick={() => photoInput.current?.click()} disabled={photos.length >= MAX_PHOTOS} className="inline-flex items-center gap-2 rounded-xl border border-dashed border-white/20 px-4 py-2.5 text-sm text-ink-muted transition-colors hover:border-steel/60 hover:text-ink disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steel">
+              <button type="button" onClick={() => photoInput.current?.click()} disabled={photos.length >= MAX_PHOTOS} className="inline-flex items-center gap-2 rounded-xl border border-dashed border-line px-4 py-2.5 text-sm text-ink-muted transition-colors hover:border-ink-muted hover:text-ink disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
                 <ImagePlus className="h-4 w-4" aria-hidden="true" />
                 Прикрепить фото
               </button>
               <input ref={photoInput} type="file" accept={ALLOWED_PHOTO_TYPES.join(',')} multiple className="sr-only" tabIndex={-1} aria-label="Выбрать фото" onChange={onPhotos} />
               {photos.map((photo, index) => (
-                <span key={`${photo.name}-${index}`} className="inline-flex max-w-full items-center gap-2 rounded-lg bg-white/5 py-1.5 pl-3 pr-1.5 text-xs text-ink">
+                <span key={`${photo.name}-${index}`} className="inline-flex max-w-full items-center gap-2 rounded-lg bg-surface py-1.5 pl-3 pr-1.5 text-xs text-ink">
                   <span className="truncate">{photo.name}</span>
-                  <button type="button" onClick={() => removePhoto(index)} aria-label={`Удалить фото ${photo.name}`} className="rounded-md p-1 text-ink-muted hover:bg-white/10 hover:text-ink">
+                  <button type="button" onClick={() => removePhoto(index)} aria-label={`Удалить фото ${photo.name}`} className="rounded-md p-1 text-ink-muted hover:bg-line hover:text-ink">
                     <X className="h-3.5 w-3.5" aria-hidden="true" />
                   </button>
                 </span>
@@ -342,15 +342,15 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
             <span className="text-sm font-medium text-ink">Запись звука (необязательно)</span>
             <p className="mt-1 text-xs text-ink-dim">Запишите стук или шум на телефон: до 3 МБ, MP3, M4A, WAV или OGG. Так диагностике легче понять проблему.</p>
             <div className="mt-2 flex flex-wrap items-center gap-3">
-              <button type="button" onClick={() => audioInput.current?.click()} disabled={!!audio} className="inline-flex items-center gap-2 rounded-xl border border-dashed border-white/20 px-4 py-2.5 text-sm text-ink-muted transition-colors hover:border-steel/60 hover:text-ink disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steel">
+              <button type="button" onClick={() => audioInput.current?.click()} disabled={!!audio} className="inline-flex items-center gap-2 rounded-xl border border-dashed border-line px-4 py-2.5 text-sm text-ink-muted transition-colors hover:border-ink-muted hover:text-ink disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">
                 <Mic className="h-4 w-4" aria-hidden="true" />
                 Прикрепить запись
               </button>
               <input ref={audioInput} type="file" accept={ALLOWED_AUDIO_TYPES.join(',') + ',audio/*'} className="sr-only" tabIndex={-1} aria-label="Выбрать запись звука" onChange={onAudio} />
               {audio && (
-                <span className="inline-flex max-w-full items-center gap-2 rounded-lg bg-white/5 py-1.5 pl-3 pr-1.5 text-xs text-ink">
+                <span className="inline-flex max-w-full items-center gap-2 rounded-lg bg-surface py-1.5 pl-3 pr-1.5 text-xs text-ink">
                   <span className="truncate">{audio.name}</span>
-                  <button type="button" onClick={() => setAudio(null)} aria-label="Удалить запись" className="rounded-md p-1 text-ink-muted hover:bg-white/10 hover:text-ink">
+                  <button type="button" onClick={() => setAudio(null)} aria-label="Удалить запись" className="rounded-md p-1 text-ink-muted hover:bg-line hover:text-ink">
                     <X className="h-3.5 w-3.5" aria-hidden="true" />
                   </button>
                 </span>
@@ -380,13 +380,13 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
           </div>
             </div>
           </details>
-@@CUT@@        </div>
+        </div>
       )}
 
       {!isEstimate && (
         <div>
           <label htmlFor={id('message')} className="text-sm font-medium text-ink">
-            Сообщение <span className="text-accent">*</span>
+            Сообщение <span className="text-ink-muted">*</span>
           </label>
           <textarea id={id('message')} name="message" rows={4} placeholder="Вопрос, запись или что-то другое" value={fields.message} onChange={update('message')} aria-invalid={invalid('message')} aria-describedby={describedBy('message')} className={inputClass(invalid('message'))} />
           {renderError('message')}
@@ -395,12 +395,12 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor={id('name')} className="text-sm font-medium text-ink">Имя <span className="text-accent">*</span></label>
+          <label htmlFor={id('name')} className="text-sm font-medium text-ink">Имя <span className="text-ink-muted">*</span></label>
           <input id={id('name')} name="name" autoComplete="name" placeholder="Как к вам обращаться" value={fields.name} onChange={update('name')} aria-invalid={invalid('name')} aria-describedby={describedBy('name')} className={inputClass(invalid('name'))} />
           {renderError('name')}
         </div>
         <div>
-          <label htmlFor={id('phone')} className="text-sm font-medium text-ink">Телефон <span className="text-accent">*</span></label>
+          <label htmlFor={id('phone')} className="text-sm font-medium text-ink">Телефон <span className="text-ink-muted">*</span></label>
           <input id={id('phone')} name="phone" type="tel" autoComplete="tel" inputMode="tel" placeholder="+7 705 000 00 00" value={fields.phone} onChange={update('phone')} aria-invalid={invalid('phone')} aria-describedby={describedBy('phone')} className={inputClass(invalid('phone'))} />
           {renderError('phone')}
         </div>
@@ -408,7 +408,7 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
 
       <div>
         <label className="flex items-start gap-3 text-sm text-ink-muted">
-          <input type="checkbox" name="consent" checked={fields.consent === 'on'} onChange={update('consent')} aria-invalid={invalid('consent')} aria-describedby={describedBy('consent')} className="mt-1 h-4 w-4 shrink-0 accent-accent" />
+          <input type="checkbox" name="consent" checked={fields.consent === 'on'} onChange={update('consent')} aria-invalid={invalid('consent')} aria-describedby={describedBy('consent')} className="mt-1 h-4 w-4 shrink-0 accent-ink" />
           <span>Я согласен(на) на обработку указанных данных для связи по моей заявке.</span>
         </label>
         {renderError('consent')}
@@ -431,9 +431,9 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
       </div>
 
       {serverError && (
-        <div role="alert" className="rounded-xl border border-accent-red/40 bg-accent-red/10 p-4 text-sm text-ink">
+        <div role="alert" className="rounded-xl border border-ink bg-surface p-4 text-sm text-ink">
           <p>{serverError}</p>
-          <TrackedLink href={leadWhatsappLink(fields)} target="_blank" rel="noopener noreferrer" event="whatsapp" location="form_error" className="mt-2 inline-flex items-center gap-2 font-semibold text-[#5BF08F] underline underline-offset-4">
+          <TrackedLink href={leadWhatsappLink(fields)} target="_blank" rel="noopener noreferrer" event="whatsapp" location="form_error" className="mt-2 inline-flex items-center gap-2 font-medium text-ink underline underline-offset-4">
             <MessageCircle className="h-4 w-4" aria-hidden="true" />
             Написать в WhatsApp
           </TrackedLink>
@@ -442,7 +442,7 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
 
       <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs leading-relaxed text-ink-dim">Заявка не является записью без подтверждения. Время мы согласуем с вами в WhatsApp или по телефону.</p>
-        <button type="submit" disabled={status === 'sending'} className={`${btnPrimary} w-full px-6 py-3.5 sm:w-auto disabled:cursor-wait disabled:opacity-70`}>
+        <button type="submit" disabled={status === 'sending'} className={`inline-flex items-center justify-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-medium text-graphite-950 transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-950 w-full px-6 py-3.5 sm:w-auto disabled:cursor-wait disabled:opacity-70`}>
           {status === 'sending' ? (
             <>
               <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />

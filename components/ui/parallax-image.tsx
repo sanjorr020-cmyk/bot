@@ -11,7 +11,7 @@ export function ParallaxFrame({ children }: { children: ReactNode }) {
   const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
 
   return (
-    <div ref={ref} className="relative overflow-hidden rounded-3xl border border-white/10">
+    <div ref={ref} className="relative overflow-hidden rounded-3xl border border-line">
       <motion.div style={reduce ? undefined : { y }} className="will-change-transform">
         {children}
       </motion.div>

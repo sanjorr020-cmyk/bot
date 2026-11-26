@@ -16,10 +16,10 @@ export default function Page() {
       works={['Компьютерная диагностика', 'Плановое ТО и замена масла', 'Ремонт ходовой части и тормозной системы', 'Ремонт бензиновых двигателей и дизельной топливной системы', 'Автоэлектрика и электронные системы']}
       extra={
         <section aria-labelledby="models-title" className="mt-12">
-          <h2 id="models-title" className="font-display text-xl font-semibold text-ink">Модели</h2>
+          <h2 id="models-title" className="font-display text-xl font-bold text-ink">Модели</h2>
           <ul className="mt-4 flex flex-wrap gap-2">
             {siteConfig.mitsubishiModels.map((m) => (
-              <li key={m} className="rounded-full border border-white/10 px-4 py-1.5 text-sm text-ink-muted">{m}</li>
+              <li key={m} className="rounded-full border border-line px-4 py-1.5 text-sm text-ink-muted">{m}</li>
             ))}
           </ul>
         </section>

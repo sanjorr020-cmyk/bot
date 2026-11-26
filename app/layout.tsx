@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Manrope } from 'next/font/google';
 import { siteConfig } from '@/config/site-config';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -7,11 +7,11 @@ import { MobileCta } from '@/components/mobile-cta';
 import { FloatingWhatsapp } from '@/components/floating-whatsapp';
 import { JsonLd } from '@/components/json-ld';
 import { AnalyticsScripts } from '@/components/analytics-scripts';
+import { palette } from '@/lib/palette';
 import './globals.css';
 
-// Шрифты подключаются через next/font: без внешних запросов из браузера и без сдвига вёрстки.
-const inter = Inter({ subsets: ['latin', 'cyrillic'], display: 'swap', variable: '--font-inter' });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], display: 'swap', variable: '--font-space' });
+// Один шрифт с кириллицей: Manrope, веса 400 (текст), 500 (кнопки), 700 (заголовки).
+const manrope = Manrope({ subsets: ['latin', 'cyrillic'], weight: ['400', '500', '700'], display: 'swap', variable: '--font-manrope' });
 
 const title = 'Автосервис в Астане: диагностика и ремонт авто | MitService';
 
@@ -63,14 +63,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#0B0F14',
+  themeColor: palette.bg,
   width: 'device-width',
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={siteConfig.language} className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang={siteConfig.language} className={manrope.variable}>
       <body className="min-h-screen bg-graphite-950 font-sans text-ink antialiased">
         <a
           href="#main"

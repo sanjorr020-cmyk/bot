@@ -23,7 +23,7 @@ export function Magnifier({ src, children, className }: { src: string; children:
       {pos && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute hidden rounded-full border border-white/60 shadow-[0_8px_30px_rgba(0,0,0,0.5)] md:block"
+          className="pointer-events-none absolute hidden rounded-full border border-line shadow-[0_8px_30px_rgba(0,0,0,0.5)] md:block"
           style={{
             width: LENS,
             height: LENS,

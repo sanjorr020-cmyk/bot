@@ -40,7 +40,7 @@ export function Process() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           style={{ originX: 0 }}
-          className="absolute left-6 top-6 hidden h-px w-[calc(100%-3rem)] bg-steel/30 md:block"
+          className="absolute left-6 top-6 hidden h-px w-[calc(100%-3rem)] bg-line md:block"
         />
         {steps.map((step, index) => (
           <motion.li
@@ -57,24 +57,24 @@ export function Process() {
               whileHover={reduce ? undefined : { scale: 1.08, rotate: 4 }}
               viewport={{ once: true }}
               transition={{ type: 'spring', stiffness: 260, damping: 18, delay: index * 0.08 + 0.1 }}
-              className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-steel/30 bg-graphite-900 text-steel-soft shadow-card"
+              className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-ink-muted bg-graphite-900 text-ink-muted shadow-card"
             >
               <step.icon className="h-5 w-5" aria-hidden="true" />
             </motion.span>
             <div>
-              <p className="text-xs font-semibold text-accent">Шаг {index + 1}</p>
-              <h3 className="mt-1 font-display text-lg font-semibold text-ink">{step.title}</h3>
+              <p className="text-xs font-medium text-ink-muted">Шаг {index + 1}</p>
+              <h3 className="mt-1 font-display text-lg font-bold text-ink">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-muted">{step.text}</p>
             </div>
           </motion.li>
         ))}
       </ol>
-      <div className="mt-12 rounded-2xl border border-white/[0.08] bg-graphite-900 p-6 sm:p-8">
-        <h3 className="font-display text-lg font-semibold text-ink">Что входит в диагностику</h3>
+      <div className="mt-12 rounded-2xl border border-line bg-graphite-900 p-6 sm:p-8">
+        <h3 className="font-display text-lg font-bold text-ink">Что входит в диагностику</h3>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
           {checklist.map((item) => (
             <li key={item} className="flex gap-3 text-sm text-ink-muted">
-              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-steel" />
+              <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-line" />
               {item}
             </li>
           ))}

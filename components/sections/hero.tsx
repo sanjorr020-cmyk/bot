@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { CheckCircle2, MapPin, ShieldCheck, Star, Stethoscope, FileText } from 'lucide-react';
 import { siteConfig, whatsappLink } from '@/config/site-config';
 import { TrackedLink } from '@/components/ui/tracked-link';
-import { btnPrimary, btnWhatsapp } from '@/components/ui/styles';
+import { btnSecondary, btnWhatsapp } from '@/components/ui/styles';
 import { Container } from '@/components/ui/section';
 import { Magnifier } from '@/components/ui/magnifier';
 
@@ -35,9 +35,6 @@ export function Hero() {
   return (
     <section id="top" aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-graphite-950 pb-16 pt-12 sm:pt-20 lg:pb-24">
       {/* Технический фон: сетка и мягкое свечение, без тяжёлых изображений */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(47,128,237,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(47,128,237,0.07)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-      </div>
 
       <Container className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
@@ -45,9 +42,9 @@ export function Hero() {
             {badges.map(({ icon: Icon, text }) => (
               <span
                 key={text}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-ink-muted backdrop-blur"
+                className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink-muted "
               >
-                <Icon className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
+                <Icon className="h-3.5 w-3.5 text-ink-muted" aria-hidden="true" />
                 {text}
               </span>
             ))}
@@ -56,7 +53,7 @@ export function Hero() {
           <motion.h1
             id="hero-title"
             {...motionProps(0.1)}
-            className="mt-6 font-display text-5xl font-light leading-[1.02] tracking-[-0.02em] text-ink sm:text-6xl lg:text-7xl"
+            className="mt-6 font-display text-5xl font-bold leading-[1.02] tracking-[-0.02em] text-ink sm:text-6xl lg:text-7xl"
           >
             Диагностика и ремонт автомобилей в Астане
           </motion.h1>
@@ -77,7 +74,7 @@ export function Hero() {
             >
               Записаться в WhatsApp
             </TrackedLink>
-            <a href="#estimate" className={`${btnPrimary} w-full px-6 py-3.5 sm:w-auto`}>
+            <a href="#estimate" className={`${btnSecondary} w-full px-6 py-3.5 sm:w-auto`}>
               Рассчитать ремонт
             </a>
           </motion.div>
@@ -85,7 +82,7 @@ export function Hero() {
           <motion.ul {...motionProps(0.4)} className="mt-8 flex flex-wrap gap-x-6 gap-y-3" aria-label="Наши преимущества">
             {advantages.map(({ icon: Icon, text }) => (
               <li key={text} className="flex items-center gap-2 text-sm text-ink">
-                <Icon className="h-4 w-4 text-steel-soft" aria-hidden="true" />
+                <Icon className="h-4 w-4 text-ink-muted" aria-hidden="true" />
                 {text}
               </li>
             ))}
@@ -96,7 +93,7 @@ export function Hero() {
           </p>
           <p className="mt-2 text-sm text-ink-muted">
             Или позвоните:{' '}
-            <TrackedLink href={`tel:${siteConfig.phone.href}`} event="phone" location="hero_text" className="font-semibold text-ink underline decoration-accent/60 underline-offset-4 hover:decoration-accent">
+            <TrackedLink href={`tel:${siteConfig.phone.href}`} event="phone" location="hero_text" className="font-medium text-ink underline decoration-accent/60 underline-offset-4 hover:decoration-accent">
               {siteConfig.phone.display}
             </TrackedLink>
           </p>
@@ -108,7 +105,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-graphite-900 shadow-card">
+          <div className="relative overflow-hidden rounded-3xl border border-line bg-graphite-900 shadow-card">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 flex motion-reduce:hidden">
               {Array.from({ length: 12 }).map((_, i) => (
                 <span

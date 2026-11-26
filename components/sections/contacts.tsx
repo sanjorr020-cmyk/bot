@@ -21,7 +21,7 @@ export function Contacts() {
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
         <div className="grid gap-5">
-          <div className="overflow-hidden rounded-2xl border border-white/[0.08]">
+          <div className="overflow-hidden rounded-2xl border border-line">
             <Image
               src="/images/facade.jpg"
               alt="Фасад автосервиса MitService на улице Вячеславская"
@@ -34,7 +34,7 @@ export function Contacts() {
           </div>
           <div className={`grid gap-6 p-6 sm:p-8 ${card}`}>
             <div className="flex gap-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-steel/15 text-steel-soft">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-line text-ink-muted">
                 <MapPin className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
@@ -48,12 +48,12 @@ export function Contacts() {
             </div>
 
             <div className="flex gap-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-steel/15 text-steel-soft">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-line text-ink-muted">
                 <Phone className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
                 <p className="text-sm font-medium text-ink-dim">Телефон</p>
-                <TrackedLink href={`tel:${phone.href}`} event="phone" location="contacts" className="mt-1 block text-lg font-semibold text-ink hover:text-steel-soft">
+                <TrackedLink href={`tel:${phone.href}`} event="phone" location="contacts" className="mt-1 block text-lg font-medium text-ink hover:text-ink-muted">
                   {phone.display}
                 </TrackedLink>
                 <div className="mt-2">
@@ -64,7 +64,7 @@ export function Contacts() {
             </div>
 
             <div className="flex gap-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-steel/15 text-steel-soft">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-line text-ink-muted">
                 <Clock className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
@@ -89,7 +89,7 @@ export function Contacts() {
                 rel="noopener noreferrer"
                 event="whatsapp"
                 location="contacts"
-                className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-[#06140B] transition-transform hover:-translate-y-0.5 hover:bg-[#2EE471]"
+                className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-wa px-5 py-3 text-sm font-medium text-graphite-950 transition-transform hover:-translate-y-0.5 hover:opacity-90"
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 Написать в WhatsApp
@@ -111,7 +111,7 @@ export function Contacts() {
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-graphite-900">
+          <div className="overflow-hidden rounded-2xl border border-line bg-graphite-900">
             <iframe
               title={`Карта: ${fullAddress}`}
               src={mapSrc}
@@ -119,9 +119,9 @@ export function Contacts() {
               referrerPolicy="no-referrer-when-downgrade"
               className="h-64 w-full grayscale-[30%] invert-[0.92] hue-rotate-180 sm:h-72"
             />
-            <div className="flex items-center justify-between gap-3 border-t border-white/[0.06] px-5 py-3 text-sm">
+            <div className="flex items-center justify-between gap-3 border-t border-line px-5 py-3 text-sm">
               <span className="text-ink-muted">{fullAddress}</span>
-              <a href={social.twoGis.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 whitespace-nowrap font-semibold text-steel-soft hover:text-ink">
+              <a href={social.twoGis.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 whitespace-nowrap font-medium text-ink-muted hover:text-ink">
                 2ГИС <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
               </a>
             </div>

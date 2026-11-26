@@ -23,23 +23,23 @@ export function Services() {
             return (
               <Reveal key={service.id} delay={(index % 4) * 0.06}>
                 <li className="h-full">
-                <TiltCard className={`group relative flex h-full flex-col p-6 transition-shadow duration-300 hover:border-steel/40 hover:shadow-card ${card}`}>
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-steel/12 text-steel-soft ring-1 ring-steel/25 transition-transform duration-300 group-hover:scale-110 group-hover:text-accent group-hover:ring-accent/40">
+                <TiltCard className={`group relative flex h-full flex-col p-6 transition-shadow duration-300 hover:border-ink-muted hover:shadow-card ${card}`}>
+                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-line text-ink-muted ring-1 ring-line transition-transform duration-300 group-hover:scale-110 group-hover:text-ink group-hover:ring-accent/40">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-5 font-display text-lg font-semibold text-ink">{service.title}</h3>
+                  <h3 className="mt-5 font-display text-lg font-bold text-ink">{service.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-ink-muted">{service.description}</p>
-                  <ul className="mt-4 flex-1 space-y-2 border-t border-white/[0.06] pt-4">
+                  <ul className="mt-4 flex-1 space-y-2 border-t border-line pt-4">
                     {service.works.map((work) => (
                       <li key={work} className="flex gap-2 text-sm text-ink-muted">
-                        <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-ink-muted" />
                         {work}
                       </li>
                     ))}
                   </ul>
                   <ServiceCta
                     problem={service.formValue}
-                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md"
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md"
                   >
                     Уточнить стоимость
                   </ServiceCta>
@@ -60,7 +60,7 @@ export function Services() {
           />
           <div className={`p-6 ${card}`}>
             <p className="text-ink-muted">Чтобы узнать ориентир, опишите проблему в форме: это бесплатно и ни к чему не обязывает.</p>
-            <a href="#estimate" className="mt-5 inline-flex items-center justify-center rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-graphite-950 shadow-card transition-colors hover:bg-accent-hover">Описать проблему</a>
+            <a href="#estimate" className="mt-5 inline-flex items-center justify-center rounded-xl border border-white/20 bg-transparent px-5 py-3 text-sm font-medium text-ink shadow-card transition-colors hover:bg-accent-hover">Описать проблему</a>
           </div>
         </div>
       </Section>

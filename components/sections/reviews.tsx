@@ -22,11 +22,11 @@ export function Reviews() {
           <div className={`mt-8 flex flex-col gap-5 p-6 sm:flex-row sm:items-center sm:justify-between ${card}`}>
             <div>
               <div className="flex items-center gap-3">
-                <span className="font-display text-5xl font-semibold text-ink">
+                <span className="font-display text-5xl font-bold text-accent">
                   <CountUp to={reputation.rating} decimals={1} />
                 </span>
                 <div>
-                  <div className="flex gap-0.5 text-accent" aria-hidden="true">
+                  <div className="flex gap-0.5 text-ink-muted" aria-hidden="true">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-current" />
                     ))}
@@ -37,8 +37,8 @@ export function Reviews() {
                 </div>
               </div>
               <p className="mt-4 text-sm text-ink-muted">
-                <span className="font-semibold text-ink">{reputation.ratingsCount}</span> оценок и{' '}
-                <span className="font-semibold text-ink">{reputation.reviewsCount}</span> отзывов в карточке {reputation.source}.
+                <span className="font-medium text-ink">{reputation.ratingsCount}</span> оценок и{' '}
+                <span className="font-medium text-ink">{reputation.reviewsCount}</span> отзывов в карточке {reputation.source}.
               </p>
             </div>
             <TrackedLink
@@ -51,7 +51,7 @@ export function Reviews() {
               Посмотреть отзывы в 2ГИС
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </TrackedLink>
-            <a href={social.yandexMaps.url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-steel-soft hover:text-ink">
+            <a href={social.yandexMaps.url} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-ink-muted hover:text-ink">
               Отзывы в Яндекс Картах
             </a>
           </div>
@@ -66,7 +66,7 @@ export function Reviews() {
               {testimonials.map((t) => (
                 <li key={t.author + t.text} className={`w-[85%] shrink-0 snap-start p-6 sm:w-[60%] lg:w-[80%] ${card}`}>
                   <p className="text-ink-muted">«{t.text}»</p>
-                  <p className="mt-4 text-sm font-semibold text-ink">
+                  <p className="mt-4 text-sm font-medium text-ink">
                     {t.author}
                     {t.car && <span className="font-normal text-ink-dim">, {t.car}</span>}
                   </p>
@@ -76,8 +76,8 @@ export function Reviews() {
           ) : (
             <ul className="grid gap-3 sm:grid-cols-2">
               {reviewThemes.map((theme) => (
-                <li key={theme} className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-graphite-900 p-4 text-sm text-ink">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                <li key={theme} className="flex items-start gap-3 rounded-xl border border-line bg-graphite-900 p-4 text-sm text-ink">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-ink-muted" aria-hidden="true" />
                   {theme}
                 </li>
               ))}

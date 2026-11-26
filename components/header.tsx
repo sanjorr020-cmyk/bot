@@ -31,7 +31,7 @@ export function Header() {
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled || open ? 'border-white/10 bg-graphite-950/85 backdrop-blur-xl' : 'border-transparent bg-graphite-950/40 backdrop-blur-sm'
+        scrolled || open ? 'border-line bg-graphite-950 ' : 'border-transparent bg-graphite-950 '
       }`}
     >
       <Container className="flex h-16 items-center justify-between gap-4">
@@ -52,9 +52,9 @@ export function Header() {
             href={`tel:${siteConfig.phone.href}`}
             event="phone"
             location="header"
-            className="hidden items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-steel-soft xl:inline-flex"
+            className="hidden items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-ink-muted xl:inline-flex"
           >
-            <Phone className="h-4 w-4 text-steel-soft" aria-hidden="true" />
+            <Phone className="h-4 w-4 text-ink-muted" aria-hidden="true" />
             {siteConfig.phone.display}
           </TrackedLink>
           <a href="#estimate" className={`${btnPrimary} hidden px-4 py-2.5 sm:inline-flex`}>
@@ -62,7 +62,7 @@ export function Header() {
           </a>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 text-ink lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steel"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-line text-ink lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? 'Закрыть меню' : 'Открыть меню'}
@@ -74,14 +74,14 @@ export function Header() {
       </Container>
 
       {open && (
-        <nav id="mobile-nav" aria-label="Мобильное меню" className="border-t border-white/10 bg-graphite-950 lg:hidden">
+        <nav id="mobile-nav" aria-label="Мобильное меню" className="border-t border-line bg-graphite-950 lg:hidden">
           <Container className="flex flex-col py-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-3 text-base text-ink-muted hover:bg-white/5 hover:text-ink"
+                className="rounded-lg px-2 py-3 text-base text-ink-muted hover:bg-line hover:text-ink"
               >
                 {item.label}
               </a>
@@ -90,9 +90,9 @@ export function Header() {
               href={`tel:${siteConfig.phone.href}`}
               event="phone"
               location="header_menu"
-              className="mt-2 inline-flex items-center gap-2 px-2 py-3 font-semibold text-ink"
+              className="mt-2 inline-flex items-center gap-2 px-2 py-3 font-medium text-ink"
             >
-              <Phone className="h-4 w-4 text-steel-soft" aria-hidden="true" />
+              <Phone className="h-4 w-4 text-ink-muted" aria-hidden="true" />
               {siteConfig.phone.display}
             </TrackedLink>
           </Container>

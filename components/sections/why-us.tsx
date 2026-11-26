@@ -63,7 +63,7 @@ export function WhyUs() {
             {stats.map((s) => (
               <div key={s.label} className={`p-4 text-center ${card}`}>
                 <dt className="sr-only">{s.label}</dt>
-                <dd className="font-display text-3xl font-semibold text-ink sm:text-4xl">
+                <dd className="font-display text-3xl font-bold text-accent sm:text-4xl">
                   <CountUp to={s.value} decimals={s.decimals} />
                 </dd>
                 <p className="mt-1 text-xs text-ink-muted">{s.label}</p>
@@ -79,11 +79,11 @@ export function WhyUs() {
             {reasons.map((r, i) => (
               <Reveal key={r.title} delay={i * 0.05}>
                 <li className="flex h-full gap-4">
-                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/12 text-accent ring-1 ring-accent/25">
+                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-line text-ink-muted ring-1 ring-line">
                     <r.icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <div>
-                    <h3 className="font-semibold text-ink">{r.title}</h3>
+                    <h3 className="font-bold text-ink">{r.title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-ink-muted">{r.text}</p>
                   </div>
                 </li>

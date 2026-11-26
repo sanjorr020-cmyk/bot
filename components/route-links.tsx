@@ -11,7 +11,7 @@ export function RouteLinks() {
     ? `https://www.google.com/maps/dir/?api=1&destination=${geo.lat},${geo.lng}`
     : `https://www.google.com/maps/search/${encodeURIComponent(label)}`;
 
-  const link = 'inline-flex items-center gap-2 rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-ink-muted transition-colors hover:border-steel/50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steel';
+  const link = 'inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-xs font-medium text-ink-muted transition-colors hover:border-ink-muted hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent';
 
   return (
     <div className="flex flex-wrap gap-2" aria-label="Построить маршрут">

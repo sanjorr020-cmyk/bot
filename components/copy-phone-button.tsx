@@ -23,9 +23,9 @@ export function CopyPhoneButton() {
       type="button"
       onClick={copy}
       aria-live="polite"
-      className="inline-flex items-center gap-2 rounded-lg border border-white/15 px-3 py-2 text-xs font-semibold text-ink-muted transition-colors hover:border-steel/50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-steel"
+      className="inline-flex items-center gap-2 rounded-lg border border-line px-3 py-2 text-xs font-medium text-ink-muted transition-colors hover:border-ink-muted hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
     >
-      {copied ? <Check className="h-3.5 w-3.5 text-[#5BF08F]" aria-hidden="true" /> : <Copy className="h-3.5 w-3.5" aria-hidden="true" />}
+      {copied ? <Check className="h-3.5 w-3.5 text-ink" aria-hidden="true" /> : <Copy className="h-3.5 w-3.5" aria-hidden="true" />}
       {copied ? 'Номер скопирован' : 'Скопировать номер'}
     </button>
   );

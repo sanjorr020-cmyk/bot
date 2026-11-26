@@ -12,7 +12,7 @@ export function FloatingWhatsapp() {
       event="whatsapp"
       location="floating_button"
       aria-label="Написать в WhatsApp"
-      className="group fixed bottom-6 right-6 z-40 hidden items-center gap-3 rounded-full bg-[#25D366] py-3 pl-4 pr-5 text-sm font-semibold text-[#06140B] shadow-card transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03] md:inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-950"
+      className="group fixed bottom-6 right-6 z-40 hidden items-center gap-3 rounded-full bg-wa py-3 pl-4 pr-5 text-sm font-medium text-graphite-950 shadow-card transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03] md:inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[] focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-950"
     >
       <span className="flex h-6 w-6 items-center justify-center">
         <MessageCircle className="relative h-5 w-5" aria-hidden="true" />
