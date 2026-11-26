@@ -50,9 +50,9 @@ export function Cases() {
     <Section id="cases" labelledBy="cases-title" tone="raised">
       <SectionHeading
        
-        title="Примеры ремонта: до и после"
+        title="До и после"
         titleId="cases-title"
-        description="Пример оформления. Изображения — иллюстрации-заглушки, а не фото выполненных ремонтов. Реальные кейсы добавим после получения материалов от сервиса."
+        description="Потяните ползунок, чтобы сравнить фото до и после. Описание повреждений и работ заполняется в конфиге перед публикацией."
       />
 
       <ul className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
