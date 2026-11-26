@@ -21,8 +21,7 @@ export function Services() {
           {siteConfig.services.map((service, index) => {
             const Icon = serviceIcons[service.icon];
             return (
-              <Reveal key={service.id} delay={(index % 4) * 0.06}>
-                <li className="h-full">
+              <Reveal as="li" key={service.id} delay={(index % 4) * 0.06} className="h-full">
                 <TiltCard className={`group relative flex h-full flex-col p-6 transition-shadow duration-300 hover:border-ink-muted hover:shadow-card ${card}`}>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-line text-ink-muted ring-1 ring-line transition-transform duration-300 group-hover:scale-110 group-hover:text-ink group-hover:ring-accent/40">
                     <Icon className="h-6 w-6" aria-hidden="true" />
@@ -44,8 +43,7 @@ export function Services() {
                     Уточнить стоимость
                   </ServiceCta>
                 </TiltCard>
-                </li>
-              </Reveal>
+                </Reveal>
             );
           })}
         </ul>

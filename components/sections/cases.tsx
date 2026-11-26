@@ -80,8 +80,7 @@ export function Cases() {
 
       <ul className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {siteConfig.cases.map((item, index) => (
-          <Reveal key={item.id} delay={index * 0.06}>
-            <li className={`flex h-full flex-col gap-4 p-4 ${card}`}>
+          <Reveal as="li" key={item.id} delay={index * 0.06} className={`flex h-full flex-col gap-4 p-4 ${card}`}>
               <BeforeAfter item={item} />
               <div className="px-2 pb-2">
                 <h3 className="font-display text-lg font-bold text-ink">{item.title}</h3>
@@ -97,8 +96,7 @@ export function Cases() {
                   </div>
                 </dl>
               </div>
-            </li>
-          </Reveal>
+            </Reveal>
         ))}
       </ul>
     </Section>

@@ -32,7 +32,7 @@ export function Process() {
         description="Понятный порядок без сюрпризов: вы знаете, что происходит, и что платите."
       />
 
-      <ol className="relative mt-12 grid gap-6 md:grid-cols-5 md:gap-4">
+      <div className="relative mt-12">
         <motion.div
           aria-hidden="true"
           initial={reduce ? undefined : { scaleX: 0 }}
@@ -42,6 +42,7 @@ export function Process() {
           style={{ originX: 0 }}
           className="absolute left-6 top-6 hidden h-px w-[calc(100%-3rem)] bg-line md:block"
         />
+        <ol className="grid gap-6 md:grid-cols-5 md:gap-4">
         {steps.map((step, index) => (
           <motion.li
             key={step.title}
@@ -68,7 +69,8 @@ export function Process() {
             </div>
           </motion.li>
         ))}
-      </ol>
+        </ol>
+      </div>
       <div className="mt-12 rounded-2xl border border-line bg-graphite-900 p-6 sm:p-8">
         <h3 className="font-display text-lg font-bold text-ink">Что входит в диагностику</h3>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
