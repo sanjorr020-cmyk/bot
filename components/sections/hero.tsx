@@ -53,9 +53,9 @@ export function Hero() {
           <motion.h1
             id="hero-title"
             {...motionProps(0.1)}
-            className="mt-6 font-display text-5xl font-bold leading-[1.02] tracking-[-0.02em] text-ink sm:text-6xl lg:text-7xl"
+            className="mt-6 font-display font-bold leading-[1.1] tracking-[-0.02em] text-ink"
           >
-            Диагностика и ремонт автомобилей в Астане
+            <span className="block text-[clamp(2.75rem,7.5vw,5.5rem)] leading-[0.95] tracking-[-0.03em]">Диагностика</span><span className="mt-3 block text-2xl font-medium leading-snug text-ink-muted sm:text-3xl">и ремонт автомобилей в Астане</span>
           </motion.h1>
 
           <motion.p {...motionProps(0.2)} className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">
