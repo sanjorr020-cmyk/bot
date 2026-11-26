@@ -93,7 +93,10 @@ export function Hero() {
             ))}
           </motion.ul>
 
-          <p className="mt-6 text-sm text-ink-muted">
+          <p className="mt-4 text-sm text-ink-muted">
+            {siteConfig.hours[0].days} {siteConfig.hours[0].time}, {siteConfig.address.city}, {siteConfig.address.street}
+          </p>
+          <p className="mt-2 text-sm text-ink-muted">
             Или позвоните:{' '}
             <TrackedLink href={`tel:${siteConfig.phone.href}`} event="phone" location="hero_text" className="font-semibold text-ink underline decoration-accent/60 underline-offset-4 hover:decoration-accent">
               {siteConfig.phone.display}
@@ -128,13 +131,6 @@ export function Hero() {
               className="h-auto w-full"
             />
             </Magnifier>
-          </div>
-          <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-white/10 bg-graphite-900/90 px-4 py-3 shadow-card backdrop-blur sm:block">
-            <p className="text-sm font-medium text-ink-dim">Рейтинг в {reputation.source}</p>
-            <p className="mt-1 font-display text-2xl font-semibold text-ink">
-              {reputation.rating.toString().replace('.', ',')}
-              <span className="ml-2 text-sm font-normal text-ink-muted">· {reputation.ratingsCount} оценок</span>
-            </p>
           </div>
         </motion.div>
       </Container>

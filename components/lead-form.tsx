@@ -252,6 +252,30 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
             {renderError('brand')}
           </div>
 
+          <div className="sm:col-span-2">
+            <label htmlFor={id('problem')} className="text-sm font-medium text-ink">
+              Тип проблемы <span className="text-accent">*</span>
+            </label>
+            <select id={id('problem')} name="problem" value={fields.problem} onChange={update('problem')} aria-invalid={invalid('problem')} aria-describedby={describedBy('problem')} className={`${inputClass(invalid('problem'))} appearance-none`}>
+              <option value="">Выберите из списка</option>
+              {problemOptions.map((option) => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+            {renderError('problem')}
+          </div>
+
+          <div className="sm:col-span-2">
+            <label htmlFor={id('description')} className="text-sm font-medium text-ink">
+              Опишите неисправность <span className="text-accent">*</span>
+            </label>
+            <textarea id={id('description')} name="description" rows={4} placeholder="Когда появилась проблема, какие звуки или ошибки, что уже делали" value={fields.description} onChange={update('description')} aria-invalid={invalid('description')} aria-describedby={describedBy('description')} className={inputClass(invalid('description'))} />
+            {renderError('description')}
+          </div>
+
+          <details className="sm:col-span-2 rounded-xl border border-white/[0.08] bg-graphite-950/60 p-4">
+            <summary className="cursor-pointer text-sm font-semibold text-ink">Подробнее: модель, год, пробег, фото и запись звука <span className="font-normal text-ink-dim">(необязательно)</span></summary>
+            <div className="mt-5 grid gap-5 sm:grid-cols-2">
           <div>
             <label htmlFor={id('model')} className="text-sm font-medium text-ink">Модель</label>
             <input
@@ -285,27 +309,6 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
             <label htmlFor={id('mileage')} className="text-sm font-medium text-ink">Пробег, км <span className="text-ink-dim">(необязательно)</span></label>
             <input id={id('mileage')} name="mileage" inputMode="numeric" maxLength={7} placeholder="120000" value={fields.mileage} onChange={update('mileage')} aria-invalid={invalid('mileage')} aria-describedby={describedBy('mileage')} className={inputClass(invalid('mileage'))} />
             {renderError('mileage')}
-          </div>
-
-          <div className="sm:col-span-2">
-            <label htmlFor={id('problem')} className="text-sm font-medium text-ink">
-              Тип проблемы <span className="text-accent">*</span>
-            </label>
-            <select id={id('problem')} name="problem" value={fields.problem} onChange={update('problem')} aria-invalid={invalid('problem')} aria-describedby={describedBy('problem')} className={`${inputClass(invalid('problem'))} appearance-none`}>
-              <option value="">Выберите из списка</option>
-              {problemOptions.map((option) => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
-            {renderError('problem')}
-          </div>
-
-          <div className="sm:col-span-2">
-            <label htmlFor={id('description')} className="text-sm font-medium text-ink">
-              Опишите неисправность <span className="text-accent">*</span>
-            </label>
-            <textarea id={id('description')} name="description" rows={4} placeholder="Когда появилась проблема, какие звуки или ошибки, что уже делали" value={fields.description} onChange={update('description')} aria-invalid={invalid('description')} aria-describedby={describedBy('description')} className={inputClass(invalid('description'))} />
-            {renderError('description')}
           </div>
 
           <div className="sm:col-span-2">
@@ -375,7 +378,9 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
             </select>
             {renderError('source')}
           </div>
-        </div>
+            </div>
+          </details>
+@@CUT@@        </div>
       )}
 
       {!isEstimate && (

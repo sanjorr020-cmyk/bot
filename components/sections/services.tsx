@@ -52,38 +52,15 @@ export function Services() {
       </Section>
 
       <Section id="prices" tone="raised" labelledBy="prices-title">
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div>
-            <SectionHeading
-             
-              title="Стоимость после диагностики"
-              titleId="prices-title"
-              description="Точная сумма зависит от марки, модели и причины неисправности. После диагностики вы получаете смету с видами работ и запчастями."
-            />
-            <p className="mt-6 rounded-xl border border-accent/30 bg-accent/10 p-4 text-sm text-ink">
-              {/* PLACEHOLDER: замените значения в config/site-config.ts (priceList) реальными ценами */}
-              Цены на сайте предварительные. Итоговая стоимость подтверждается после диагностики.
-            </p>
-          </div>
-
-          <div className={`overflow-hidden p-2 ${card}`}>
-            <table className="w-full text-left text-sm">
-              <caption className="sr-only">Ориентировочные цены на услуги</caption>
-              <thead className="bg-white/[0.03] text-xs uppercase tracking-wider text-ink-dim">
-                <tr>
-                  <th scope="col" className="px-5 py-3 font-semibold">Услуга</th>
-                  <th scope="col" className="px-5 py-3 text-right font-semibold">Ориентир</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/[0.06]">
-                {siteConfig.priceList.map((row) => (
-                  <tr key={row.service} className="transition-colors hover:bg-white/[0.02]">
-                    <th scope="row" className="px-5 py-4 font-medium text-ink">{row.service}</th>
-                    <td className="px-5 py-4 text-right text-ink-muted">{row.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <SectionHeading
+            title="Стоимость после диагностики"
+            titleId="prices-title"
+            description="Стоимость работ и запчастей зависит от неисправности и марки. После диагностики вы получаете смету с видами работ и запчастями, и работы начинаются только после вашего согласия."
+          />
+          <div className={`p-6 ${card}`}>
+            <p className="text-ink-muted">Чтобы узнать ориентир, опишите проблему в форме: это бесплатно и ни к чему не обязывает.</p>
+            <a href="#estimate" className="mt-5 inline-flex items-center justify-center rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-graphite-950 shadow-card transition-colors hover:bg-accent-hover">Описать проблему</a>
           </div>
         </div>
       </Section>

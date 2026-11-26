@@ -1,9 +1,9 @@
 import { Hero } from '@/components/sections/hero';
 import { Symptoms } from '@/components/sections/symptoms';
+import { Estimate } from '@/components/sections/estimate';
 import { Services } from '@/components/sections/services';
 import { WhyUs } from '@/components/sections/why-us';
 import { Process } from '@/components/sections/process';
-import { Estimate } from '@/components/sections/estimate';
 import { Cases } from '@/components/sections/cases';
 import { Reviews } from '@/components/sections/reviews';
 import { Faq } from '@/components/sections/faq';
@@ -15,10 +15,10 @@ export default function HomePage() {
     <>
       <Hero />
       <Symptoms />
+      <Estimate />
       <Services />
       <WhyUs />
       <Process />
-      <Estimate />
       <Cases />
       <Reviews />
       <Faq />

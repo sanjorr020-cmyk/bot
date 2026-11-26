@@ -15,7 +15,7 @@ export function Reviews() {
         <div>
           <SectionHeading
            
-            title="Клиенты отмечают то, что важно в ремонте"
+            title="Что отмечают клиенты"
             titleId="reviews-title"
           />
 

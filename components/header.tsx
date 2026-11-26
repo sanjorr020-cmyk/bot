@@ -11,6 +11,7 @@ import { Container } from './ui/section';
 const navItems = [
   { href: '#services', label: 'Услуги' },
   { href: '#prices', label: 'Цены' },
+  { href: '#cases', label: 'Кейсы' },
   { href: '#process', label: 'Как работаем' },
   { href: '#reviews', label: 'Отзывы' },
   { href: '#contacts', label: 'Контакты' },
