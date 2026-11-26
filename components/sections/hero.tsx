@@ -7,6 +7,7 @@ import { siteConfig, whatsappLink } from '@/config/site-config';
 import { TrackedLink } from '@/components/ui/tracked-link';
 import { btnPrimary, btnWhatsapp } from '@/components/ui/styles';
 import { Container } from '@/components/ui/section';
+import { Magnifier } from '@/components/ui/magnifier';
 
 const fade = (delay: number) => ({
   initial: { opacity: 0, y: 18 },
@@ -116,6 +117,7 @@ export function Hero() {
                 />
               ))}
             </div>
+            <Magnifier src="/images/illustrations/hero-car-on-lift.jpg">
             <Image
               src="/images/illustrations/hero-car-on-lift.jpg"
               alt="Автомобиль на подъёмнике в мастерской MitService"
@@ -125,6 +127,7 @@ export function Hero() {
               sizes="(min-width: 1024px) 40vw, 100vw"
               className="h-auto w-full"
             />
+            </Magnifier>
           </div>
           <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-white/10 bg-graphite-900/90 px-4 py-3 shadow-card backdrop-blur sm:block">
             <p className="text-sm font-medium text-ink-dim">Рейтинг в {reputation.source}</p>
