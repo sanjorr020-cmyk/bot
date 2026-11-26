@@ -6,6 +6,7 @@ import { TrackedLink } from '@/components/ui/tracked-link';
 import { LeadForm } from '@/components/lead-form';
 import { RouteLinks } from '@/components/route-links';
 import { CopyPhoneButton } from '@/components/copy-phone-button';
+import { SaveContactButton } from '@/components/save-contact-button';
 import { InstagramIcon, WhatsAppIcon } from '@/components/icons/brand';
 import { btnSecondary, card } from '@/components/ui/styles';
 
@@ -57,6 +58,7 @@ export function Contacts() {
                 </TrackedLink>
                 <div className="mt-2">
                   <CopyPhoneButton />
+                  <span className="ml-2 inline-flex"><SaveContactButton /></span>
                 </div>
               </div>
             </div>
@@ -91,6 +93,16 @@ export function Contacts() {
               >
                 <WhatsAppIcon className="h-5 w-5" />
                 Написать в WhatsApp
+              </TrackedLink>
+              <TrackedLink
+                href={whatsappLink('Здравствуйте! Напомните, пожалуйста, о плановом ТО для моего автомобиля. Марка и модель: ')}
+                target="_blank"
+                rel="noopener noreferrer"
+                event="whatsapp"
+                location="maintenance_reminder"
+                className={`${btnSecondary} flex-1`}
+              >
+                Напомнить о ТО
               </TrackedLink>
               <a href={social.instagram.url} target="_blank" rel="noopener noreferrer" className={`${btnSecondary} flex-1`}>
                 <InstagramIcon className="h-5 w-5" />
