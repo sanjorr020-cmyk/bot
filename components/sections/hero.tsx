@@ -56,7 +56,7 @@ export function Hero() {
           <motion.h1
             id="hero-title"
             {...motionProps(0.1)}
-            className="mt-6 font-display text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl"
+            className="mt-6 font-display text-5xl font-light leading-[1.02] tracking-[-0.02em] text-ink sm:text-6xl lg:text-7xl"
           >
             Диагностика и ремонт автомобилей в Астане
           </motion.h1>
@@ -82,12 +82,10 @@ export function Hero() {
             </a>
           </motion.div>
 
-          <motion.ul {...motionProps(0.4)} className="mt-10 grid gap-3 sm:grid-cols-3" aria-label="Наши преимущества">
+          <motion.ul {...motionProps(0.4)} className="mt-8 flex flex-wrap gap-x-6 gap-y-3" aria-label="Наши преимущества">
             {advantages.map(({ icon: Icon, text }) => (
-              <li key={text} className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-graphite-900/70 p-3 text-sm text-ink">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-steel/15 text-steel-soft">
-                  <Icon className="h-[18px] w-[18px]" aria-hidden="true" />
-                </span>
+              <li key={text} className="flex items-center gap-2 text-sm text-ink">
+                <Icon className="h-4 w-4 text-steel-soft" aria-hidden="true" />
                 {text}
               </li>
             ))}
