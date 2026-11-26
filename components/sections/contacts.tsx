@@ -1,5 +1,6 @@
 import { Clock, ExternalLink, MapPin, Phone } from 'lucide-react';
 import { siteConfig, whatsappLink } from '@/config/site-config';
+import Image from 'next/image';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { TrackedLink } from '@/components/ui/tracked-link';
 import { LeadForm } from '@/components/lead-form';
@@ -19,6 +20,17 @@ export function Contacts() {
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
         <div className="grid gap-5">
+          <div className="overflow-hidden rounded-2xl border border-white/[0.08]">
+            <Image
+              src="/images/facade.jpg"
+              alt="Фасад автосервиса MitService на улице Вячеславская"
+              width={500}
+              height={333}
+              loading="lazy"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="h-auto w-full"
+            />
+          </div>
           <div className={`grid gap-6 p-6 sm:p-8 ${card}`}>
             <div className="flex gap-4">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-steel/15 text-steel-soft">
