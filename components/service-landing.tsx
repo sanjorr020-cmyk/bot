@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { ArrowRight, MessageCircle, Phone } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 import { siteConfig, whatsappLink } from '@/config/site-config';
 import { Container } from '@/components/ui/section';
 import { TrackedLink } from '@/components/ui/tracked-link';
@@ -32,7 +32,6 @@ export function ServiceLanding({ h1, intro, works, extra, waMessage }: Props) {
           </TrackedLink>
           <a href="/#estimate" className={`${btnPrimary} px-6 py-3.5`}>
             Оставить заявку
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
           <TrackedLink href={`tel:${siteConfig.phone.href}`} event="phone" location={`landing:${h1}`} className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 px-6 py-3.5 text-sm font-semibold text-ink hover:border-steel/50">
             <Phone className="h-4 w-4 text-steel-soft" aria-hidden="true" />

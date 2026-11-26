@@ -46,17 +46,6 @@ export function Footer() {
           </ul>
         </nav>
 
-        <nav aria-label="Услуги в подвале">
-          <h2 className="text-sm font-semibold text-ink">Услуги</h2>
-          <ul className="mt-4 space-y-2.5 text-sm text-ink-muted">
-            {siteConfig.services.map((s) => (
-              <li key={s.id}>
-                <a href="#services" className="hover:text-ink">{s.title}</a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
         <div>
           <h2 className="text-sm font-semibold text-ink">Контакты</h2>
           <ul className="mt-4 space-y-2.5 text-sm text-ink-muted">

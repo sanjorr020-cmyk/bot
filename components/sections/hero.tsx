@@ -36,8 +36,6 @@ export function Hero() {
       {/* Технический фон: сетка и мягкое свечение, без тяжёлых изображений */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(47,128,237,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(47,128,237,0.07)_1px,transparent_1px)] bg-[size:56px_56px] [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-        <div className="absolute -top-40 left-1/2 h-[480px] w-[720px] -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]" />
-        <div className="absolute right-0 top-1/3 h-[360px] w-[360px] rounded-full bg-steel/15 blur-[110px]" />
       </div>
 
       <Container className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">

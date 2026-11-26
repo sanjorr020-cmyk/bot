@@ -1,6 +1,5 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/config/site-config';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { card } from '@/components/ui/styles';
@@ -29,10 +28,7 @@ export function Symptoms() {
             >
               <span className="font-display text-base font-semibold text-ink">{s.title}</span>
               <span className="mt-2 flex-1 text-sm leading-relaxed text-ink-muted">{s.hint}</span>
-              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                Описать в форме
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
-              </span>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">Описать в форме</span>
             </a>
           </li>
         ))}
