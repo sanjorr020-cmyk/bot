@@ -1,6 +1,7 @@
 'use client';
 
-import { useId, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { siteConfig, type CaseItem } from '@/config/site-config';
 import { Section, SectionHeading } from '@/components/ui/section';
@@ -11,9 +12,31 @@ import { card } from '@/components/ui/styles';
 function BeforeAfter({ item }: { item: CaseItem }) {
   const [position, setPosition] = useState(50);
   const labelId = useId();
+  const root = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
+
+  // Однократная подсказка: ползунок проезжает влево-вправо, когда кейс появляется в экране.
+  useEffect(() => {
+    const node = root.current;
+    if (!node || reduce) return;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        observer.disconnect();
+        [35, 65, 50].forEach((value, i) => timers.push(setTimeout(() => setPosition(value), 350 * (i + 1))));
+      },
+      { threshold: 0.6 },
+    );
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      timers.forEach(clearTimeout);
+    };
+  }, [reduce]);
 
   return (
-    <div className="relative aspect-[4/3] w-full select-none overflow-hidden rounded-xl bg-graphite-950">
+    <div ref={root} className="relative aspect-[4/3] w-full select-none overflow-hidden rounded-xl bg-graphite-950">
       <Image src={item.before.src} alt={item.before.alt} fill unoptimized sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" draggable={false} />
       <div className="absolute inset-0" style={{ clipPath: `inset(0 0 0 ${position}%)` }}>
         <Image src={item.after.src} alt={item.after.alt} fill unoptimized sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" draggable={false} />
@@ -23,7 +46,7 @@ function BeforeAfter({ item }: { item: CaseItem }) {
       <span className="pointer-events-none absolute right-3 top-3 rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-graphite-950">После</span>
 
       <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 w-0.5 bg-white/90 shadow-[0_0_12px_rgba(255,255,255,0.6)]" style={{ left: `${position}%` }}>
-        <span className="absolute top-1/2 left-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-graphite-950 shadow-lg">
+        <span className="absolute top-1/2 left-1/2 flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-graphite-950 shadow-lg">
           <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 6l-6 6 6 6M15 6l6 6-6 6" />
           </svg>
@@ -35,7 +58,7 @@ function BeforeAfter({ item }: { item: CaseItem }) {
         type="range"
         min={0}
         max={100}
-        step={1}
+        step={5}
         value={position}
         onChange={(e) => setPosition(Number(e.target.value))}
         aria-label={`Сравнить до и после: ${item.title}`}

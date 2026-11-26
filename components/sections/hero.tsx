@@ -107,6 +107,15 @@ export function Hero() {
           className="relative"
         >
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-graphite-900 shadow-card">
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-10 flex motion-reduce:hidden">
+              {Array.from({ length: 12 }).map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-full flex-1 bg-graphite-950 ${i % 2 === 0 ? 'animate-slice-up' : 'animate-slice-down'}`}
+                  style={{ animationDelay: `${0.15 + i * 0.04}s` }}
+                />
+              ))}
+            </div>
             <Image
               src="/images/illustrations/hero-car-on-lift.jpg"
               alt="Автомобиль на подъёмнике в мастерской MitService"

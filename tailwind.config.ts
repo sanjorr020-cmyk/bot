@@ -40,6 +40,14 @@ const config: Config = {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
+        'slice-up': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-101%)' },
+        },
+        'slice-down': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(101%)' },
+        },
         'faq-down': {
           from: { height: '0', opacity: '0' },
           to: { height: 'var(--radix-accordion-content-height)', opacity: '1' },
@@ -48,6 +56,8 @@ const config: Config = {
       animation: {
         shimmer: 'shimmer 3s linear infinite',
         'faq-down': 'faq-down 0.25s ease-out',
+        'slice-up': 'slice-up 0.9s cubic-bezier(0.22,1,0.36,1) both',
+        'slice-down': 'slice-down 0.9s cubic-bezier(0.22,1,0.36,1) both',
       },
     },
   },
