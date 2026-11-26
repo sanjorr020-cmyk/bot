@@ -59,6 +59,7 @@ export function Services() {
             description="Стоимость работ и запчастей зависит от неисправности и марки. После диагностики вы получаете смету с видами работ и запчастями, и работы начинаются только после вашего согласия."
           />
           <div className={`p-6 ${card}`}>
+            <p className="font-display text-3xl font-bold text-accent">После диагностики</p>
             <p className="text-ink-muted">Чтобы узнать ориентир, опишите проблему в форме: это бесплатно и ни к чему не обязывает.</p>
             <a href="#estimate" className="mt-5 inline-flex items-center justify-center rounded-xl border border-white/20 bg-transparent px-5 py-3 text-sm font-medium text-ink shadow-card transition-colors hover:bg-accent-hover">Описать проблему</a>
           </div>
