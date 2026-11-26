@@ -110,15 +110,15 @@ export function Hero() {
         >
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-graphite-900 shadow-card">
             <Image
-              src="/images/hero-lift.svg"
-              alt="Автомобиль на подъёмнике в боксе сервиса (заглушка — замените фото мастерской)"
-              width={1200}
-              height={900}
+              src="/images/illustrations/hero-car-on-lift.jpg"
+              alt="Иллюстрация: автомобиль на подъёмнике в автосервисе"
+              width={469}
+              height={313}
               priority
-              unoptimized
               sizes="(min-width: 1024px) 40vw, 100vw"
               className="h-auto w-full"
             />
+            <span className="absolute left-3 top-3 rounded-md bg-graphite-950/80 px-2.5 py-1 text-xs font-medium text-ink-muted backdrop-blur">Иллюстрация</span>
           </div>
           <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-white/10 bg-graphite-900/90 px-4 py-3 shadow-card backdrop-blur sm:block">
             <p className="text-xs uppercase tracking-wider text-ink-dim">Рейтинг в {reputation.source}</p>

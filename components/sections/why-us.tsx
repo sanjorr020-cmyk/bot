@@ -94,15 +94,15 @@ export function WhyUs() {
 
         <ParallaxFrame>
           <Image
-            src="/images/workshop.svg"
-            alt="Рабочая зона мастерской MitService (заглушка — замените фото вашей мастерской)"
-            width={1200}
-            height={1000}
-            unoptimized
+            src="/images/illustrations/workshop-interior.jpg"
+            alt="Иллюстрация: рабочий зал автосервиса с подъёмниками"
+            width={448}
+            height={331}
             loading="lazy"
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="h-auto w-full scale-110"
           />
+          <span className="absolute left-3 top-3 z-10 rounded-md bg-graphite-950/80 px-2.5 py-1 text-xs font-medium text-ink-muted backdrop-blur">Иллюстрация</span>
         </ParallaxFrame>
       </div>
     </Section>
