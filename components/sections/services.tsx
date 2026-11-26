@@ -1,4 +1,3 @@
-import { ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/config/site-config';
 import { serviceIcons } from '@/components/icons/service-icons';
 import { Reveal } from '@/components/ui/reveal';
@@ -11,7 +10,7 @@ export function Services() {
     <>
       <Section id="services" labelledBy="services-title">
         <SectionHeading
-          eyebrow="Услуги"
+         
           title="Что мы делаем"
           titleId="services-title"
           description="От проверки ошибок до ремонта узлов. Каждую работу начинаем с диагностики и согласования сметы."
@@ -41,7 +40,6 @@ export function Services() {
                     className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-colors hover:text-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md"
                   >
                     Уточнить стоимость
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
                   </ServiceCta>
                 </li>
               </Reveal>
@@ -54,7 +52,7 @@ export function Services() {
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <div>
             <SectionHeading
-              eyebrow="Цены"
+             
               title="Стоимость после диагностики"
               titleId="prices-title"
               description="Точная сумма зависит от марки, модели и причины неисправности. После диагностики вы получаете смету с видами работ и запчастями."

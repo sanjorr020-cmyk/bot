@@ -53,7 +53,7 @@ export function WhyUs() {
       <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center">
         <div>
           <SectionHeading
-            eyebrow="Почему MitService"
+           
             title="Ремонт, в котором понятно, за что вы платите"
             titleId="why-title"
             description="Перед каждой работой объясняем, что нужно сделать и зачем."

@@ -16,7 +16,7 @@ export function Contacts() {
 
   return (
     <Section id="contacts" labelledBy="contacts-title">
-      <SectionHeading eyebrow="Контакты" title="Приезжайте или напишите" titleId="contacts-title" />
+      <SectionHeading title="Приезжайте или напишите" titleId="contacts-title" />
 
       <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1fr]">
         <div className="grid gap-5">
@@ -37,7 +37,7 @@ export function Contacts() {
                 <MapPin className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-wider text-ink-dim">Адрес</p>
+                <p className="text-sm font-medium text-ink-dim">Адрес</p>
                 <address className="mt-1 not-italic text-ink">
                   {address.city}, {address.street}
                   <br />
@@ -51,7 +51,7 @@ export function Contacts() {
                 <Phone className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-wider text-ink-dim">Телефон</p>
+                <p className="text-sm font-medium text-ink-dim">Телефон</p>
                 <TrackedLink href={`tel:${phone.href}`} event="phone" location="contacts" className="mt-1 block text-lg font-semibold text-ink hover:text-steel-soft">
                   {phone.display}
                 </TrackedLink>
@@ -66,7 +66,7 @@ export function Contacts() {
                 <Clock className="h-5 w-5" aria-hidden="true" />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-wider text-ink-dim">Часы работы</p>
+                <p className="text-sm font-medium text-ink-dim">Часы работы</p>
                 <dl className="mt-1 space-y-1 text-sm">
                   {hours.map((h) => (
                     <div key={h.days} className="flex gap-3">

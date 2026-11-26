@@ -118,7 +118,7 @@ export function Hero() {
             />
           </div>
           <div className="absolute -bottom-5 -left-3 hidden rounded-2xl border border-white/10 bg-graphite-900/90 px-4 py-3 shadow-card backdrop-blur sm:block">
-            <p className="text-xs uppercase tracking-wider text-ink-dim">Рейтинг в {reputation.source}</p>
+            <p className="text-sm font-medium text-ink-dim">Рейтинг в {reputation.source}</p>
             <p className="mt-1 font-display text-2xl font-semibold text-ink">
               {reputation.rating.toString().replace('.', ',')}
               <span className="ml-2 text-sm font-normal text-ink-muted">· {reputation.ratingsCount} оценок</span>

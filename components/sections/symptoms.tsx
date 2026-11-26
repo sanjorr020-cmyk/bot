@@ -13,7 +13,7 @@ export function Symptoms() {
   return (
     <Section id="symptoms" labelledBy="symptoms-title">
       <SectionHeading
-        eyebrow="Что случилось"
+       
         title="Выберите, что беспокоит, — подскажем, что делать"
         titleId="symptoms-title"
         description="Нажмите на симптом: форма откроется с заполненным типом проблемы. Точную причину определит диагностика."

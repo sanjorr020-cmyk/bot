@@ -14,7 +14,7 @@ export function Reviews() {
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div>
           <SectionHeading
-            eyebrow="Отзывы"
+           
             title="Клиенты отмечают то, что важно в ремонте"
             titleId="reviews-title"
           />

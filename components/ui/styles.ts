@@ -19,4 +19,3 @@ export const btnWhatsapp =
 
 export const card = 'rounded-2xl border border-white/[0.08] bg-graphite-900 shadow-card';
 
-export const eyebrow = 'text-xs font-semibold uppercase tracking-[0.18em] text-steel-soft';

@@ -14,7 +14,7 @@ export function Estimate() {
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
         <div>
           <SectionHeading
-            eyebrow="Оценка ремонта"
+           
             title="Расскажите о проблеме — подскажем, что делать"
             titleId="estimate-title"
             description="Заявка уходит нам на почту. Дальше продолжаем в WhatsApp: так быстрее согласуем время."

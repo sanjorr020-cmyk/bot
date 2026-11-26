@@ -49,7 +49,7 @@ export function Cases() {
   return (
     <Section id="cases" labelledBy="cases-title" tone="raised">
       <SectionHeading
-        eyebrow="Кейсы"
+       
         title="Примеры ремонта: до и после"
         titleId="cases-title"
         description="Пример оформления. Изображения — иллюстрации-заглушки, а не фото выполненных ремонтов. Реальные кейсы добавим после получения материалов от сервиса."

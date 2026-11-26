@@ -26,7 +26,7 @@ export function Process() {
   return (
     <Section id="process" labelledBy="process-title">
       <SectionHeading
-        eyebrow="Как мы работаем"
+       
         title="Пять шагов от заявки до выдачи"
         titleId="process-title"
         description="Понятный порядок без сюрпризов: вы знаете, что происходит, и что платите."

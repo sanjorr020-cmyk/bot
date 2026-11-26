@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { cx } from '@/lib/utils';
-import { eyebrow } from './styles';
 
 export function Container({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={cx('mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8', className)}>{children}</div>;
@@ -32,17 +31,15 @@ export function Section({ id, children, className, tone = 'base', labelledBy }: 
 }
 
 type HeadingProps = {
-  eyebrow?: string;
   title: string;
   titleId: string;
   description?: string;
   align?: 'left' | 'center';
 };
 
-export function SectionHeading({ eyebrow: label, title, titleId, description, align = 'left' }: HeadingProps) {
+export function SectionHeading({ title, titleId, description, align = 'left' }: HeadingProps) {
   return (
     <div className={cx('max-w-3xl', align === 'center' && 'mx-auto text-center')}>
-      {label && <p className={eyebrow}>{label}</p>}
       <h2 id={titleId} className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
         {title}
       </h2>

@@ -10,7 +10,7 @@ export function Faq() {
   return (
     <Section id="faq" labelledBy="faq-title" tone="raised">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-        <SectionHeading eyebrow="Частые вопросы" title="Отвечаем до визита" titleId="faq-title" description="Если не нашли ответ, напишите или позвоните — подскажем." />
+        <SectionHeading title="Отвечаем до визита" titleId="faq-title" description="Если не нашли ответ, напишите или позвоните — подскажем." />
 
         <Accordion.Root type="single" collapsible className={`divide-y divide-white/[0.06] overflow-hidden p-2 ${card}`}>
           {siteConfig.faq.map((item, index) => (
