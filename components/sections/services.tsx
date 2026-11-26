@@ -23,7 +23,7 @@ export function Services() {
             return (
               <Reveal key={service.id} delay={(index % 4) * 0.06}>
                 <li className="h-full">
-                <TiltCard className={`group relative flex h-full flex-col p-6 transition-shadow duration-300 hover:border-steel/40 hover:shadow-[0_24px_60px_-24px_rgba(47,128,237,0.35)] ${card}`}>
+                <TiltCard className={`group relative flex h-full flex-col p-6 transition-shadow duration-300 hover:border-steel/40 hover:shadow-card ${card}`}>
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-steel/12 text-steel-soft ring-1 ring-steel/25 transition-transform duration-300 group-hover:scale-110 group-hover:text-accent group-hover:ring-accent/40">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>

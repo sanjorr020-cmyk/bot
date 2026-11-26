@@ -33,7 +33,7 @@ export function Process() {
       />
 
       <ol className="relative mt-12 grid gap-6 md:grid-cols-5 md:gap-4">
-        <div aria-hidden="true" className="absolute left-6 top-6 hidden h-px w-[calc(100%-3rem)] bg-gradient-to-r from-steel/60 via-steel/30 to-accent/60 md:block" />
+        <div aria-hidden="true" className="absolute left-6 top-6 hidden h-px w-[calc(100%-3rem)] bg-steel/30 md:block" />
         {steps.map((step, index) => (
           <motion.li
             key={step.title}
