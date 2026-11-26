@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-graphite-950 font-sans text-ink antialiased">
         <a
           href="#main"
-          className="sr-only z-[100] rounded-lg bg-accent px-4 py-2 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+          className="sr-only z-[100] rounded-lg bg-accent px-4 py-2 text-graphite-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
         >
           Перейти к содержимому
         </a>

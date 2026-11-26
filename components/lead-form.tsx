@@ -443,7 +443,7 @@ export function LeadForm({ variant = 'estimate' }: { variant?: Variant }) {
               <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
               Отправляем…
             </>
-          ) : isEstimate ? 'Получить оценку в WhatsApp' : 'Отправить'}
+          ) : isEstimate ? 'Отправить заявку' : 'Отправить'}
         </button>
       </div>
     </form>

@@ -1,7 +1,7 @@
 /** Общие классы кнопок и карточек. Держим здесь, чтобы стиль был единым. */
 export const btnPrimary =
-  'group inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-white ' +
-  'shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-hover ' +
+  'group inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-3 text-sm font-semibold text-graphite-950 ' +
+  'shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-hover ' +
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-graphite-950 ' +
   'active:translate-y-0 active:scale-[0.98]';
 

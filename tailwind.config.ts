@@ -15,7 +15,7 @@ const config: Config = {
         ink: {
           DEFAULT: '#E6EAF0',
           muted: '#9AA6B6',
-          dim: '#6B778A',
+          dim: '#8A96A8',
         },
         accent: {
           DEFAULT: '#FF7A00',
@@ -33,7 +33,7 @@ const config: Config = {
       },
       boxShadow: {
         card: '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 12px 40px -16px rgba(0,0,0,0.6)',
-        glow: '0 0 0 1px rgba(255,122,0,0.35), 0 10px 40px -10px rgba(255,122,0,0.45)',
+        glow: '0 1px 0 0 rgba(255,255,255,0.08) inset, 0 8px 24px -12px rgba(0,0,0,0.6)',
       },
       keyframes: {
         shimmer: {

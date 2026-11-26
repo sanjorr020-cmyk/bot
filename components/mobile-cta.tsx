@@ -28,7 +28,7 @@ export function MobileCta() {
           <MessageCircle className="h-5 w-5" aria-hidden="true" />
           WhatsApp
         </TrackedLink>
-        <a href="#estimate" className={`${item} bg-accent text-white shadow-glow`}>
+        <a href="#estimate" className={`${item} bg-accent text-graphite-950`}>
           <CalendarCheck className="h-5 w-5" aria-hidden="true" />
           Записаться
         </a>

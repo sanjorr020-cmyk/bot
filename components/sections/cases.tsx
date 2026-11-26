@@ -20,7 +20,7 @@ function BeforeAfter({ item }: { item: CaseItem }) {
       </div>
 
       <span className="pointer-events-none absolute left-3 top-3 rounded-md bg-graphite-950/80 px-2.5 py-1 text-xs font-semibold text-ink backdrop-blur">До</span>
-      <span className="pointer-events-none absolute right-3 top-3 rounded-md bg-accent/90 px-2.5 py-1 text-xs font-semibold text-white">После</span>
+      <span className="pointer-events-none absolute right-3 top-3 rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-graphite-950">После</span>
 
       <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 w-0.5 bg-white/90 shadow-[0_0_12px_rgba(255,255,255,0.6)]" style={{ left: `${position}%` }}>
         <span className="absolute top-1/2 left-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white text-graphite-950 shadow-lg">

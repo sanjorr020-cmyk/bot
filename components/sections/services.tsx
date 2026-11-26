@@ -65,7 +65,7 @@ export function Services() {
             </p>
           </div>
 
-          <div className={`overflow-hidden ${card}`}>
+          <div className={`overflow-hidden p-2 ${card}`}>
             <table className="w-full text-left text-sm">
               <caption className="sr-only">Ориентировочные цены на услуги</caption>
               <thead className="bg-white/[0.03] text-xs uppercase tracking-wider text-ink-dim">
