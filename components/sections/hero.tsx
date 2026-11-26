@@ -22,7 +22,7 @@ export function Hero() {
 
   const badges = [
     { icon: Star, text: `Рейтинг ${reputation.rating.toString().replace('.', ',')} в ${reputation.source}` },
-    { icon: CheckCircle2, text: `${reputation.ratingsCount} оценок · ${reputation.reviewsCount} отзывов` },
+    { icon: CheckCircle2, text: `${reputation.ratingsCount} оценок, ${reputation.reviewsCount} отзывов` },
     { icon: MapPin, text: siteConfig.address.city },
   ];
 

@@ -1,4 +1,4 @@
-import { ExternalLink, Star } from 'lucide-react';
+import { Check, ExternalLink, Star } from 'lucide-react';
 import { siteConfig } from '@/config/site-config';
 import { Section, SectionHeading } from '@/components/ui/section';
 import { CountUp } from '@/components/ui/count-up';
@@ -32,7 +32,7 @@ export function Reviews() {
                     ))}
                   </div>
                   <p className="mt-1 text-sm text-ink-muted">
-                    из 5 · {reputation.source}
+                    из 5 в {reputation.source}
                   </p>
                 </div>
               </div>
@@ -68,7 +68,7 @@ export function Reviews() {
                   <p className="text-ink-muted">«{t.text}»</p>
                   <p className="mt-4 text-sm font-semibold text-ink">
                     {t.author}
-                    {t.car && <span className="font-normal text-ink-dim"> · {t.car}</span>}
+                    {t.car && <span className="font-normal text-ink-dim">, {t.car}</span>}
                   </p>
                 </li>
               ))}
@@ -77,7 +77,7 @@ export function Reviews() {
             <ul className="grid gap-3 sm:grid-cols-2">
               {reviewThemes.map((theme) => (
                 <li key={theme} className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-graphite-900 p-4 text-sm text-ink">
-                  <Star className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
                   {theme}
                 </li>
               ))}
