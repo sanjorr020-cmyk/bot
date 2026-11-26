@@ -51,6 +51,9 @@ export function Reviews() {
               Посмотреть отзывы в 2ГИС
               <ExternalLink className="h-4 w-4" aria-hidden="true" />
             </TrackedLink>
+            <a href={social.yandexMaps.url} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-steel-soft hover:text-ink">
+              Отзывы в Яндекс Картах
+            </a>
           </div>
         </div>
 

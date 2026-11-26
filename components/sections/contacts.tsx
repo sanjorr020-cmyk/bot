@@ -9,7 +9,7 @@ import { btnSecondary, card } from '@/components/ui/styles';
 export function Contacts() {
   const { address, phone, hours, social } = siteConfig;
   const fullAddress = `${address.city}, ${address.street}, ${address.district}`;
-  const mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(fullAddress)}&output=embed`;
+  const mapSrc = `https://maps.google.com/maps?q=${address.geo?.lat},${address.geo?.lng}&output=embed`;
 
   return (
     <Section id="contacts" labelledBy="contacts-title">

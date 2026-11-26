@@ -64,7 +64,7 @@ export function Hero() {
 
           <motion.p {...motionProps(0.2)} className="mt-5 max-w-xl text-base leading-relaxed text-ink-muted sm:text-lg">
             Компьютерная диагностика, ремонт генераторов и стартеров, ходовой части, двигателя и автоэлектрика.
-            Сначала находим причину, потом называем смету.
+            Диагностика без догадок. Ремонт с понятным планом. Опыт обслуживания и ремонта автомобилей Mitsubishi.
           </motion.p>
 
           <motion.div {...motionProps(0.3)} className="mt-8 flex flex-col gap-3 sm:flex-row">

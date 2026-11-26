@@ -29,6 +29,9 @@ export function Footer() {
             <a href={siteConfig.social.twoGis.url} target="_blank" rel="noopener noreferrer" className="flex h-10 items-center justify-center rounded-lg border border-white/10 px-3 text-sm font-semibold text-ink-muted transition-colors hover:border-steel/50 hover:text-ink">
               2ГИС
             </a>
+            <a href={siteConfig.social.yandexMaps.url} target="_blank" rel="noopener noreferrer" className="flex h-10 items-center justify-center rounded-lg border border-white/10 px-3 text-sm font-semibold text-ink-muted transition-colors hover:border-steel/50 hover:text-ink">
+              Яндекс Карты
+            </a>
           </div>
         </div>
 

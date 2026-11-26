@@ -10,8 +10,8 @@ import { card } from '@/components/ui/styles';
 const reasons = [
   {
     icon: Wrench,
-    title: 'Ремонт легковых автомобилей',
-    text: 'Компьютерная диагностика, генераторы, стартеры, ходовая, двигатель, автоэлектрика и дизельная топливная система.',
+    title: 'Опыт с Mitsubishi',
+    text: 'Обслуживаем и ремонтируем Mitsubishi: Pajero, Outlander, Pajero Sport, ASX, L200, Lancer.',
   },
   {
     icon: Gauge,

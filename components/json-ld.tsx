@@ -43,7 +43,7 @@ export function JsonLd() {
       itemOffered: { '@type': 'Service', name: s.title, description: s.description },
     })),
     openingHoursSpecification: hours
-      .filter((h) => !h.time.includes('['))
+      .filter((h) => !h.time.includes('[') && !h.time.includes('Уточн'))
       .map((h) => ({ '@type': 'OpeningHoursSpecification', description: `${h.days}: ${h.time}` })),
   };
 
