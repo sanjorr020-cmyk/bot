@@ -34,7 +34,7 @@ export function ServiceLanding({ h1, intro, works, extra, waMessage }: Props) {
             Оставить заявку
           </a>
           <TrackedLink href={`tel:${siteConfig.phone.href}`} event="phone" location={`landing:${h1}`} className="inline-flex items-center justify-center gap-2 rounded-xl border border-line px-6 py-3.5 text-sm font-medium text-ink hover:border-ink-muted">
-            <Phone className="h-4 w-4 text-ink-muted" aria-hidden="true" />
+            <Phone className="h-4 w-4 text-ink" aria-hidden="true" />
             {siteConfig.phone.display}
           </TrackedLink>
         </div>

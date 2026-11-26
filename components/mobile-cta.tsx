@@ -14,7 +14,7 @@ export function MobileCta() {
     >
       <div className="mx-auto flex max-w-md items-stretch gap-2">
         <TrackedLink href={`tel:${siteConfig.phone.href}`} event="phone" location="mobile_bar" className={`${item} text-ink`}>
-          <Phone className="h-5 w-5 text-ink-muted" aria-hidden="true" />
+          <Phone className="h-5 w-5 text-ink" aria-hidden="true" />
           Позвонить
         </TrackedLink>
         <TrackedLink

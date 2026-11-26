@@ -44,8 +44,8 @@ export function Hero() {
                 key={text}
                 className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-ink-muted "
               >
-                <Icon className="h-3.5 w-3.5 text-ink-muted" aria-hidden="true" />
-                {text}
+                <Icon className="h-3.5 w-3.5 text-ink" aria-hidden="true" />
+                {text.split(/(\d[\d,]*)/).map((part, i) => (/\d/.test(part) ? <span key={i} className="text-accent">{part}</span> : <span key={i}>{part}</span>))}
               </span>
             ))}
           </motion.div>
@@ -82,7 +82,7 @@ export function Hero() {
           <motion.ul {...motionProps(0.4)} className="mt-8 flex flex-wrap gap-x-6 gap-y-3" aria-label="Наши преимущества">
             {advantages.map(({ icon: Icon, text }) => (
               <li key={text} className="flex items-center gap-2 text-sm text-ink">
-                <Icon className="h-4 w-4 text-ink-muted" aria-hidden="true" />
+                <Icon className="h-4 w-4 text-ink" aria-hidden="true" />
                 {text}
               </li>
             ))}

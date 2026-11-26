@@ -77,7 +77,7 @@ export function Reviews() {
             <ul className="grid gap-3 sm:grid-cols-2">
               {reviewThemes.map((theme) => (
                 <li key={theme} className="flex items-start gap-3 rounded-xl border border-line bg-graphite-900 p-4 text-sm text-ink">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-ink-muted" aria-hidden="true" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-ink" aria-hidden="true" />
                   {theme}
                 </li>
               ))}

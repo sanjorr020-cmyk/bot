@@ -54,7 +54,7 @@ export function Header() {
             location="header"
             className="hidden items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-ink-muted xl:inline-flex"
           >
-            <Phone className="h-4 w-4 text-ink-muted" aria-hidden="true" />
+            <Phone className="h-4 w-4 text-ink" aria-hidden="true" />
             {siteConfig.phone.display}
           </TrackedLink>
           <a href="#estimate" className={`${btnPrimary} hidden px-4 py-2.5 sm:inline-flex`}>
@@ -92,7 +92,7 @@ export function Header() {
               location="header_menu"
               className="mt-2 inline-flex items-center gap-2 px-2 py-3 font-medium text-ink"
             >
-              <Phone className="h-4 w-4 text-ink-muted" aria-hidden="true" />
+              <Phone className="h-4 w-4 text-ink" aria-hidden="true" />
               {siteConfig.phone.display}
             </TrackedLink>
           </Container>
