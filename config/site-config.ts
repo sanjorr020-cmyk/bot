@@ -263,15 +263,6 @@ export const siteConfig = {
       after: { src: '/images/cases/ford-after.jpg', alt: 'Ford Focus после ремонта: передняя часть восстановлена' },
     },
     {
-      id: 'case-rav4',
-      title: 'Toyota RAV4',
-      car: 'Toyota RAV4',
-      problem: '[Опишите повреждение: что было сломано или повреждено]',
-      solution: '[Опишите выполненные работы и запчасти]',
-      before: { src: '/images/cases/rav4-before.jpg', alt: 'Toyota RAV4 до ремонта: повреждён борт' },
-      after: { src: '/images/cases/rav4-after.jpg', alt: 'Toyota RAV4 после ремонта: борт восстановлен' },
-    },
-    {
       id: 'case-bmw',
       title: 'BMW 5 Series',
       car: 'BMW 5 Series',
