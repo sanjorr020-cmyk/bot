@@ -34,7 +34,15 @@ export function Hero() {
 
   return (
     <section id="top" aria-labelledby="hero-title" className="relative isolate overflow-hidden bg-graphite-950 pb-16 pt-12 sm:pt-20 lg:pb-24">
-      {/* Технический фон: сетка и мягкое свечение, без тяжёлых изображений */}
+      {/* Фоновое фото: широкое для десктопа, вертикальное для телефона. Декоративное, без текста. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <picture>
+          <source media="(min-width: 768px)" srcSet="/images/backgrounds/hero-wide.webp" />
+          <img src="/images/backgrounds/hero-tall.webp" alt="" className="h-full w-full object-cover object-[70%_center] md:object-center" loading="eager" />
+        </picture>
+        {/* Тёмный слой для читаемости текста. Сплошной цвет палитры, без градиента. */}
+        <div className="absolute inset-0 bg-graphite-950/80" />
+      </div>
 
       <Container className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
