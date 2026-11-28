@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Макет: Telegram Mini App для онлайн-школы</title>
+<style>
+  :root {
+    --bg:#ffffff; --sec:#efeff4; --text:#000000; --hint:#707579;
+    --link:#007aff; --red:#ff3b30; --orange:#ff9500; --green:#34c759; --yellow:#ffcc00;
+    --sep:#e2e2e8; --tint:#e6f0ff;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#f2f2f6; font:15px/1.35 -apple-system,"Helvetica Neue",Arial,sans-serif; color:var(--text); }
+  .board { width:1676px; padding:48px 40px 56px; }
+  .row { display:grid; grid-template-columns:repeat(5,300px); gap:24px; justify-content:center; margin-bottom:44px; }
+  .col { display:flex; flex-direction:column; align-items:center; }
+  .cap { font-size:12px; color:var(--hint); text-align:center; margin-top:10px; }
+  .phone { width:300px; height:620px; background:var(--sec); border-radius:36px; border:1px solid #d3d3da; overflow:hidden; display:flex; flex-direction:column; }
+  .status { height:44px; display:flex; justify-content:space-between; align-items:center; padding:0 24px; font-weight:600; font-size:14px; background:var(--bg); }
+  .nav { height:44px; display:flex; align-items:center; justify-content:center; background:var(--bg); font-weight:600; font-size:16px; border-bottom:1px solid var(--sep); position:relative; }
+  .nav .back { position:absolute; left:12px; top:6px; color:var(--link); font-size:26px; font-weight:300; }
+  .nav .side { position:absolute; right:14px; top:10px; width:22px; height:22px; border-radius:50%; background:var(--tint); }
+  .content { flex:1; overflow:hidden; padding-bottom:8px; }
+  .big { font-size:28px; font-weight:700; padding:14px 18px 2px; }
+  .sub { font-size:14px; color:var(--hint); padding:0 18px 8px; }
+  .sec-h { font-size:12px; color:var(--hint); text-transform:uppercase; letter-spacing:.3px; padding:16px 20px 6px; }
+  .group { background:var(--bg); margin:0 12px; border-radius:12px; overflow:hidden; }
+  .cell { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:11px 14px; min-height:46px; border-bottom:1px solid var(--sep); }
+  .cell:last-child { border-bottom:0; }
+  .t { font-size:15px; }
+  .s { font-size:13px; color:var(--hint); margin-top:2px; }
+  .chev { color:#c4c4c9; font-size:18px; }
+  .val { color:var(--hint); font-size:14px; }
+  .btn { background:var(--link); color:#fff; border-radius:12px; padding:12px; text-align:center; font-weight:600; margin:12px 12px 0; font-size:15px; }
+  .btn.ghost { background:var(--tint); color:var(--link); }
+  .btn.small { padding:7px 12px; font-size:13px; margin:0; border-radius:9px; }
+  .pill { font-size:12px; font-weight:600; padding:3px 9px; border-radius:999px; white-space:nowrap; }
+  .p-red { background:#ffe5e3; color:#c62a20; }
+  .p-or { background:#fff0db; color:#b36b00; }
+  .p-yel { background:#fff8cc; color:#7a6200; }
+  .p-blue { background:var(--tint); color:var(--link); }
+  .p-grn { background:#e2f7e8; color:#1f8a3d; }
+  .bar { height:6px; background:#e3e3e8; border-radius:3px; overflow:hidden; margin-top:8px; }
+  .bar i { display:block; height:100%; background:var(--link); }
+  .tabs { height:58px; background:var(--bg); border-top:1px solid var(--sep); display:flex; justify-content:space-around; align-items:center; font-size:10px; color:var(--hint); padding-bottom:4px; }
+  .tabs div { display:flex; flex-direction:column; align-items:center; gap:3px; }
+  .tabs i { width:22px; height:18px; border:2px solid currentColor; border-radius:5px; display:block; }
+  .tabs .on { color:var(--link); }
+  .week { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; padding:12px 10px 4px; background:var(--bg); }
+  .d { text-align:center; font-size:11px; color:var(--hint); padding:6px 0; border-radius:10px; }
+  .d b { display:block; font-size:15px; color:var(--text); font-weight:600; }
+  .d.on { background:var(--link); color:#fff; }
+  .d.on b { color:#fff; }
+  .video { height:150px; background:#1c1c1e; display:flex; align-items:center; justify-content:center; position:relative; }
+  .play { width:0; height:0; border-left:22px solid #fff; border-top:13px solid transparent; border-bottom:13px solid transparent; margin-left:6px; }
+  .dur { position:absolute; right:10px; bottom:8px; color:#fff; font-size:12px; background:rgba(0,0,0,.5); padding:2px 6px; border-radius:6px; }
+  .stat { display:flex; gap:6px; padding:10px 14px; }
+  .stat span { flex:1; text-align:center; font-size:12px; color:var(--hint); padding:8px 4px; border-radius:10px; background:var(--bg); }
+  .stat b { display:block; font-size:18px; color:var(--text); }
+  .bub { max-width:78%; padding:9px 12px; border-radius:18px; font-size:15px; line-height:1.3; margin:6px 12px; }
+  .me { background:var(--link); color:#fff; margin-left:auto; border-bottom-right-radius:6px; }
+  .them { background:#e6e6eb; border-bottom-left-radius:6px; }
+  .time { font-size:11px; color:var(--hint); margin:0 14px; }
+  .input { margin:auto 10px 6px; display:flex; gap:8px; align-items:center; }
+  .input .f { flex:1; background:var(--bg); border-radius:18px; padding:9px 14px; color:var(--hint); font-size:14px; border:1px solid var(--sep); }
+  .input .send { width:34px; height:34px; border-radius:50%; background:var(--link); }
+  .ring { width:120px; height:120px; margin:18px auto 4px; position:relative; }
+  .ring svg { transform:rotate(-90deg); }
+  .ring b { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:26px; }
+  .seg { display:flex; background:#e3e3e8; border-radius:9px; padding:2px; margin:12px 12px 0; }
+  .seg span { flex:1; text-align:center; font-size:13px; padding:6px 0; border-radius:7px; color:var(--text); }
+  .seg .on { background:var(--bg); font-weight:600; box-shadow:0 1px 2px rgba(0,0,0,.12); }
+  .tbl { display:grid; grid-template-columns:1.6fr 1fr 1fr; font-size:13px; padding:9px 14px; border-bottom:1px solid var(--sep); }
+  .tbl.h { color:var(--hint); font-size:12px; }
+  .tbl div:not(:first-child) { text-align:right; }
+  .note { font-size:11px; color:var(--hint); text-align:center; margin:0 auto; padding:0 6px; }
+</style>
+</head>
+<body>
+<div class="board">
+
+  <!-- Ряд 1. Ученик -->
+  <div class="row">
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="content">
+          <div class="big">Привет!</div>
+          <div class="sub">Продолжай учиться</div>
+          <div class="sec-h">Текущий курс</div>
+          <div class="group"><div class="cell" style="display:block">
+            <div class="t" style="font-size:17px;font-weight:600">General English</div>
+            <div class="bar"><i style="width:42%"></i></div>
+            <div class="s" style="display:flex;justify-content:space-between"><span>Прогресс</span><span>42%</span></div>
+          </div></div>
+          <div class="sec-h">Ближайшее занятие</div>
+          <div class="group"><div class="cell" style="display:block">
+            <div class="t">Сегодня, 19:00</div><div class="s">General English</div>
+            <div class="btn" style="margin:10px 0 0">Ссылка на урок</div>
+          </div></div>
+          <div class="sec-h">Мои курсы</div>
+          <div class="group">
+            <div class="cell"><div><div class="t">General English</div></div><span class="val">42%</span><span class="chev">›</span></div>
+            <div class="cell"><div><div class="t">Business English</div></div><span class="val">0%</span><span class="chev">›</span></div>
+          </div>
+        </div>
+        <div class="tabs"><div class="on"><i></i>Главная</div><div><i></i>Расписание</div><div><i></i>Материалы</div><div><i></i>Оплата</div></div>
+      </div>
+      <div class="cap">Главная ученика</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span>Расписание</span></div>
+        <div class="content">
+          <div class="week">
+            <div class="d"><b>23</b>Пн</div><div class="d"><b>24</b>Вт</div><div class="d on"><b>25</b>Ср</div>
+            <div class="d"><b>26</b>Чт</div><div class="d"><b>27</b>Пт</div><div class="d"><b>28</b>Сб</div><div class="d"><b>29</b>Вс</div>
+          </div>
+          <div class="sec-h">Сегодня, 25 ноября</div>
+          <div class="group"><div class="cell" style="display:block">
+            <div class="t">19:00–20:00 · General English</div><div class="s">Преподаватель 1</div>
+            <div class="btn ghost small" style="margin-top:10px;display:block;text-align:center">Ссылка на урок</div>
+          </div></div>
+          <div class="sec-h">Завтра, 26 ноября</div>
+          <div class="group"><div class="cell" style="display:block">
+            <div class="t">18:00–19:00 · General English</div><div class="s">Преподаватель 1</div>
+            <div class="btn ghost small" style="margin-top:10px;display:block;text-align:center">Ссылка на урок</div>
+          </div></div>
+        </div>
+        <div class="tabs"><div><i></i>Главная</div><div class="on"><i></i>Расписание</div><div><i></i>Материалы</div><div><i></i>Оплата</div></div>
+      </div>
+      <div class="cap">Расписание</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span class="back">‹</span><span>Урок 1 из 8</span></div>
+        <div class="content">
+          <div class="video"><div class="play"></div><div class="dur">24:32</div></div>
+          <div class="big" style="font-size:20px;padding-top:12px">Lesson 1. Hello!</div>
+          <div class="sub">24 мин · General English</div>
+          <div class="sec-h">Материалы</div>
+          <div class="group">
+            <div class="cell"><span class="t">Видео-урок</span><span class="chev">›</span></div>
+            <div class="cell"><span class="t">Полезный PDF</span><span class="chev">›</span></div>
+            <div class="cell"><span class="t">Дополнительные ссылки</span><span class="chev">›</span></div>
+          </div>
+          <div class="sec-h">Домашнее задание</div>
+          <div class="group"><div class="cell" style="display:block">
+            <div class="t">Выполните упражнения и отправьте на проверку</div>
+            <div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">
+              <span class="pill p-red">Не сдано</span><span class="pill p-or">На проверке</span><span class="pill p-grn">Проверено</span>
+            </div>
+          </div></div>
+          <div class="btn">Перейти к заданию</div>
+        </div>
+        <div class="tabs"><div><i></i>Главная</div><div><i></i>Расписание</div><div class="on"><i></i>Материалы</div><div><i></i>Оплата</div></div>
+      </div>
+      <div class="cap">Урок и домашнее задание</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span class="back">‹</span><span>Доступ и обучение</span></div>
+        <div class="content">
+          <div class="sec-h">Курс</div>
+          <div class="group"><div class="cell" style="display:block;padding:14px">
+            <div class="t" style="font-size:17px;font-weight:600">General English</div>
+            <div class="s">Стоимость: [цена]</div>
+            <div class="btn" style="margin:12px 0 0">Записаться на пробный урок</div>
+          </div></div>
+          <div class="sec-h">Доступ</div>
+          <div class="group"><div class="cell"><div><div class="t">Доступ активен</div><div class="s">до 30.12.2026</div></div><span class="pill p-grn">Активен</span></div></div>
+          <div class="sec-h">Поддержка</div>
+          <div class="group"><div class="cell"><span class="t" style="color:var(--link)">Написать менеджеру</span><span class="chev">›</span></div></div>
+        </div>
+        <div class="tabs"><div><i></i>Главная</div><div><i></i>Расписание</div><div><i></i>Материалы</div><div class="on"><i></i>Оплата</div></div>
+      </div>
+      <div class="cap">Доступ и пробный урок</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span class="back">‹</span><span>ИИ-куратор</span></div>
+        <div class="content" style="display:flex;flex-direction:column;height:100%">
+          <div class="time" style="text-align:right;margin-top:10px">14:20</div>
+          <div class="bub me">Как лучше подготовиться к экзамену?</div>
+          <div class="bub them">Сфокусируйтесь на ключевых темах и пройдите дополнительные тесты в разделе «Практика».</div>
+          <div class="time">14:25</div>
+        </div>
+        <div class="input"><div class="f">Написать сообщение…</div><div class="send"></div></div>
+        <div class="tabs"><div><i></i>Главная</div><div><i></i>Расписание</div><div><i></i>Материалы</div><div class="on"><i></i>Куратор</div></div>
+      </div>
+      <div class="cap">ИИ-куратор · доп. модуль</div>
+    </div>
+  </div>
+
+  <!-- Ряд 2. Преподаватель, куратор -->
+  <div class="row">
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span>Мои уроки</span></div>
+        <div class="content">
+          <div class="stat"><span><b>3</b>уроков сегодня</span><span><b>3</b>на проверке</span></div>
+          <div class="sec-h">Сегодня</div>
+          <div class="group"><div class="cell" style="display:block">
+            <div class="t">19:00 · General English</div><div class="s">Группа · 7 учеников</div>
+            <div class="seg" style="margin:10px 0 0"><span class="on">Ссылка на Zoom</span></div>
+            <div class="cell" style="padding:8px 0 0;border:0;display:block"><div class="s" style="color:var(--text);font-size:13px">https://zoom.us/j/123456</div></div>
+            <div class="btn" style="margin:8px 0 0">Открыть урок</div>
+          </div></div>
+          <div class="sec-h">Завтра</div>
+          <div class="group"><div class="cell"><div><div class="t">18:00 · Business English</div><div class="s">Группа · 5 учеников</div></div><span class="chev">›</span></div></div>
+        </div>
+        <div class="tabs"><div class="on"><i></i>Уроки</div><div><i></i>Проверка</div><div><i></i>Дневник</div><div><i></i>Профиль</div></div>
+      </div>
+      <div class="cap">Преподаватель · мои уроки</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span class="back">‹</span><span>Посещаемость</span></div>
+        <div class="content">
+          <div class="sub" style="padding-top:12px">General English · 25 ноября</div>
+          <div class="group">
+            <div class="cell"><span class="t">Ученик 1</span><span class="pill p-blue">Был</span></div>
+            <div class="cell"><span class="t">Ученик 2</span><span class="pill p-red">Не был</span></div>
+            <div class="cell"><span class="t">Ученик 3</span><span class="pill p-or">Опоздал</span></div>
+          </div>
+          <div class="btn" style="margin-top:16px">Сохранить</div>
+        </div>
+        <div class="tabs"><div><i></i>Уроки</div><div class="on"><i></i>Посещаемость</div><div><i></i>Дневник</div><div><i></i>Профиль</div></div>
+      </div>
+      <div class="cap">Преподаватель · посещаемость</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span>Проверка заданий</span></div>
+        <div class="content">
+          <div class="stat"><span><b>3</b>на проверке</span><span><b>12</b>проверено за неделю</span></div>
+          <div class="sec-h">Очередь</div>
+          <div class="group">
+            <div class="cell"><div><div class="t">Ученик 1 · Урок 1</div><div class="s">Упражнения</div></div><span class="btn small" style="margin:0">Оценить</span></div>
+            <div class="cell"><div><div class="t">Ученик 2 · Урок 1</div><div class="s">Упражнения</div></div><span class="btn small" style="margin:0">Оценить</span></div>
+            <div class="cell"><div><div class="t">Ученик 3 · Урок 1</div><div class="s">Упражнения</div></div><span class="btn small" style="margin:0">Оценить</span></div>
+          </div>
+        </div>
+        <div class="tabs"><div><i></i>Уроки</div><div class="on"><i></i>Проверка</div><div><i></i>Дневник</div><div><i></i>Профиль</div></div>
+      </div>
+      <div class="cap">Преподаватель · проверка заданий</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span>Ученики</span></div>
+        <div class="content">
+          <div class="sec-h">Требуют внимания</div>
+          <div class="group">
+            <div class="cell"><div><div class="t">Ученик 1</div><div class="s">General English</div></div><span class="pill p-red">Пропуски: 3</span></div>
+            <div class="cell"><div><div class="t">Ученик 2</div><div class="s">General English</div></div><span class="pill p-or">Не сдано: 2</span></div>
+            <div class="cell"><div><div class="t">Ученик 3</div><div class="s">Business English</div></div><span class="pill p-yel">Балл 52%</span></div>
+          </div>
+        </div>
+        <div class="tabs"><div class="on"><i></i>Ученики</div><div><i></i>Сообщения</div><div><i></i>Напоминания</div><div><i></i>Профиль</div></div>
+      </div>
+      <div class="cap">Куратор · список учеников</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span class="back">‹</span><span>Ученик 1</span></div>
+        <div class="content">
+          <div class="group" style="margin-top:12px"><div class="cell" style="display:block">
+            <div class="t" style="font-size:17px;font-weight:600">General English</div>
+            <div class="bar"><i style="width:42%"></i></div>
+            <div class="s">Прогресс курса · 42%</div>
+          </div></div>
+          <div class="btn">Написать</div>
+          <div class="btn ghost">Напомнить об оплате</div>
+          <div class="sec-h">Последние действия</div>
+          <div class="group">
+            <div class="cell"><span class="t">Пропуск урока</span><span class="val">вчера</span></div>
+            <div class="cell"><span class="t">Задание не сдано</span><span class="val">2 дня</span></div>
+          </div>
+        </div>
+        <div class="tabs"><div class="on"><i></i>Ученики</div><div><i></i>Сообщения</div><div><i></i>Напоминания</div><div><i></i>Профиль</div></div>
+      </div>
+      <div class="cap">Куратор · карточка ученика</div>
+    </div>
+  </div>
+
+  <!-- Ряд 3. Администрация и доп. модули -->
+  <div class="row">
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span>Группы</span></div>
+        <div class="content">
+          <div class="seg"><span class="on">Алматы</span><span>Астана</span></div>
+          <div class="sec-h">Группы</div>
+          <div class="group">
+            <div class="cell"><div><div class="t">General English</div><div class="s">Преподаватель 1</div></div><span class="val">24 ученика</span></div>
+            <div class="cell"><div><div class="t">Business English</div><div class="s">Преподаватель 2</div></div><span class="val">18 учеников</span></div>
+            <div class="cell"><div><div class="t">Academic English</div><div class="s">Преподаватель 3</div></div><span class="val">16 учеников</span></div>
+          </div>
+        </div>
+        <div class="tabs"><div><i></i>Главная</div><div><i></i>Расписание</div><div><i></i>Ученики</div><div class="on"><i></i>Админ</div></div>
+      </div>
+      <div class="cap">Администрация · группы</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span>Отчёт</span></div>
+        <div class="content">
+          <div class="sec-h">Алматы · ноябрь</div>
+          <div class="group">
+            <div class="tbl h"><div>Группа</div><div>Посещаемость</div><div>Балл</div></div>
+            <div class="tbl"><div>General English</div><div>92%</div><div>78</div></div>
+            <div class="tbl"><div>Business English</div><div>87%</div><div>74</div></div>
+            <div class="tbl" style="border:0"><div>Academic English</div><div>81%</div><div>71</div></div>
+          </div>
+          <div class="sec-h">Итого</div>
+          <div class="group"><div class="cell"><span class="t">Средняя посещаемость</span><span class="val">87%</span></div></div>
+        </div>
+        <div class="tabs"><div><i></i>Главная</div><div><i></i>Расписание</div><div><i></i>Ученики</div><div class="on"><i></i>Админ</div></div>
+      </div>
+      <div class="cap">Администрация · отчёт</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span class="back">‹</span><span>Уроки в Zoom</span></div>
+        <div class="content">
+          <div class="group" style="margin-top:12px"><div class="cell" style="display:block">
+            <div class="t">19:00–20:00 · General English</div>
+            <div class="btn" style="margin:10px 0 0">Подключить Zoom</div>
+            <div class="s" style="margin-top:8px;color:var(--green)">Встреча создана автоматически</div>
+          </div></div>
+          <div class="sec-h">Участники</div>
+          <div class="group">
+            <div class="cell"><span class="t">Присутствовали</span><span class="val">6</span></div>
+            <div class="cell"><span class="t">Отсутствовали</span><span class="val">1</span></div>
+          </div>
+        </div>
+        <div class="tabs"><div><i></i>Главная</div><div><i></i>Расписание</div><div><i></i>Материалы</div><div><i></i>Оплата</div></div>
+      </div>
+      <div class="cap">Модуль · Zoom · по согласованию</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span class="back">‹</span><span>Успеваемость</span></div>
+        <div class="content">
+          <div class="ring">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="#e3e3e8" stroke-width="10"/>
+              <circle cx="60" cy="60" r="52" fill="none" stroke="#007aff" stroke-width="10" stroke-linecap="round" stroke-dasharray="255 327"/>
+            </svg>
+            <b>78%</b>
+          </div>
+          <div class="note">Средний балл за курс</div>
+          <div class="sec-h">Сильные стороны</div>
+          <div class="group"><div class="cell"><span class="t">Грамматика</span><span class="pill p-grn">92%</span></div></div>
+          <div class="sec-h">Нужно подтянуть</div>
+          <div class="group"><div class="cell"><span class="t">Произношение</span><span class="pill p-or">61%</span></div></div>
+          <div class="sec-h">Что повторить</div>
+          <div class="group">
+            <div class="cell"><span class="t">Present Perfect</span><span class="chev">›</span></div>
+            <div class="cell"><span class="t">Аудирование: 10 мин в день</span><span class="chev">›</span></div>
+          </div>
+        </div>
+        <div class="tabs"><div><i></i>Главная</div><div><i></i>Расписание</div><div class="on"><i></i>Успеваемость</div><div><i></i>Дневник</div></div>
+      </div>
+      <div class="cap">Модуль · аналитика · по согласованию</div>
+    </div>
+
+    <div class="col">
+      <div class="phone">
+        <div class="status"><span>9:41</span><span>●●●</span></div>
+        <div class="nav"><span class="back">‹</span><span>Дневник</span></div>
+        <div class="content">
+          <div class="sec-h">Последние записи</div>
+          <div class="group">
+            <div class="cell" style="display:block"><div style="display:flex;justify-content:space-between"><span class="t">24.11 · General English</span><span class="pill p-grn">5</span></div><div class="s">Отлично, продолжайте в том же духе</div></div>
+            <div class="cell" style="display:block"><div style="display:flex;justify-content:space-between"><span class="t">17.11 · Grammar</span><span class="pill p-blue">4</span></div><div class="s">Хорошая работа, повторить времена</div></div>
+            <div class="cell" style="display:block"><div style="display:flex;justify-content:space-between"><span class="t">10.11 · Vocabulary</span><span class="pill p-grn">5</span></div><div class="s">Без замечаний</div></div>
+          </div>
+          <div class="btn">Добавить запись</div>
+        </div>
+        <div class="tabs"><div><i></i>Главная</div><div><i></i>Расписание</div><div><i></i>Успеваемость</div><div class="on"><i></i>Дневник</div></div>
+      </div>
+      <div class="cap">Модуль · дневник · по согласованию</div>
+    </div>
+  </div>
+
+  <div class="note" style="font-size:13px;margin-top:8px">Визуальная концепция. Стиль: светлая тема Telegram (цвета из TelegramUI), системный шрифт, сгруппированные списки. Имена и цены — заглушки.</div>
+</div>
+</body>
+</html>
