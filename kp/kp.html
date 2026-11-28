@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>КП: Telegram Mini App для онлайн-школы</title>
+<style>
+  :root { --ink:#1b1f2a; --muted:#5b6170; --accent:#2f6fed; --line:#e3e6ee; --bg:#f7f8fb; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.55 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--ink); background:#fff; }
+  .page { max-width:820px; margin:0 auto; padding:40px 32px; }
+  h1 { font-size:28px; margin:0 0 6px; }
+  h2 { font-size:19px; margin:32px 0 10px; padding-top:6px; border-top:2px solid var(--accent); }
+  .meta { color:var(--muted); font-size:14px; }
+  .placeholder { background:#fff4d6; border-radius:4px; padding:0 3px; }
+  .note { font-size:13px; color:var(--muted); }
+  .mock { width:100%; border-radius:12px; border:1px solid var(--line); margin:12px 0 4px; }
+  table { width:100%; border-collapse:collapse; margin:10px 0; font-size:14px; }
+  th, td { border:1px solid var(--line); padding:8px 10px; vertical-align:top; text-align:left; }
+  th { background:var(--bg); }
+  td.rec, th.rec { background:#eaf1ff; }
+  ul { margin:6px 0 6px 20px; padding:0; }
+  li { margin:3px 0; }
+  .cards { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .card { border:1px solid var(--line); border-radius:10px; padding:12px 14px; background:var(--bg); }
+  .card b { display:block; margin-bottom:4px; }
+  .sig { margin-top:28px; padding:14px 16px; background:var(--bg); border-radius:10px; font-size:14px; }
+  @media print { .page { padding:18px 24px; } h2 { break-after:avoid; } .cards, table, .mock { break-inside:avoid; } }
+  @media (max-width:600px) { .cards { grid-template-columns:1fr; } .page { padding:24px 16px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <h1>Коммерческое предложение</h1>
+  <div class="meta">Telegram Mini App для онлайн-школы</div>
+  <div class="meta">Для: <span class="placeholder">[название школы, контактное лицо]</span></div>
+  <div class="meta">От: Санжар, <span class="placeholder">[компания, контакт]</span></div>
+  <div class="meta">Дата: <span class="placeholder">[дата]</span> · Действительно до: <span class="placeholder">[дата + 21 день]</span></div>
+
+  <h2>1. Главное</h2>
+  <p><span class="placeholder">[Школа]</span> ведёт учеников через несколько мест: расписание, материалы, домашние задания и оплату. Каждое место — точка, где ученик теряется и где уходит время у команды. <span class="placeholder">[Цифра боли: сколько часов в месяц уходит на ручные действия или сколько заявок не доходит до оплаты — уточнить на созвоне.]</span></p>
+  <p>Предлагаем одно мини-приложение внутри Telegram, где ученики учатся, видят расписание и сдают задания, а школа ведёт процессы. Цель: <span class="placeholder">[метрика школы, например, сократить ручную рассылку расписания с N часов до M]</span> за <span class="placeholder">[N недель]</span>.</p>
+
+  <h2>2. Задачи, которые мы закрываем</h2>
+  <ul>
+    <li><span class="placeholder">[Задача 1 из разговора со школой]</span></li>
+    <li><span class="placeholder">[Задача 2]</span></li>
+    <li><span class="placeholder">[Задача 3 или ограничение: бюджет, сроки, текущие сервисы]</span></li>
+  </ul>
+
+  <h2>3. Как это выглядит</h2>
+  <img class="mock" src="mockup.png" alt="Макет Telegram Mini App: личный кабинет, расписание, урок, оплата, ИИ-куратор">
+  <p class="note">Визуальная концепция. Это не скриншот готового продукта. Состав первой версии определяем вместе со школой; модули, помеченные «по согласованию», входят в стоимость только после решения.</p>
+
+  <h2>4. Что входит</h2>
+  <div class="cards">
+    <div class="card"><b>Первая версия (базовая)</b>
+      Личный кабинет, расписание с ссылками на занятия, учебные материалы, домашние задания с проверкой преподавателем, прогресс по курсу, уведомления о занятиях и дедлайнах.</div>
+    <div class="card"><b>Администрирование</b>
+      Ученики, курсы, расписание и задания — отдельная панель для школы.</div>
+    <div class="card"><b>Дополнительные модули (по согласованию)</b>
+      Оплата курсов и контроль доступа, CRM, ИИ-куратор, аналитика. Подключаются отдельным решением, цены указаны в вариантах ниже.</div>
+    <div class="card"><b>Роли</b>
+      Ученик, преподаватель, администрация. Права разграничены.</div>
+  </div>
+
+  <h2>5. Этапы и сроки</h2>
+  <table>
+    <tr><th>Этап</th><th>Срок</th><th>Что делаем</th><th>Результат</th></tr>
+    <tr><td>1. Обсуждение задач</td><td><span class="placeholder">[1 нед]</span></td><td>Процессы, приоритеты, функции первой версии</td><td>Утверждённое ТЗ</td></tr>
+    <tr><td>2. Прототип и дизайн</td><td><span class="placeholder">[1–2 нед]</span></td><td>Сценарии и согласование экранов</td><td>Прототип, одобренный школой</td></tr>
+    <tr><td>3. Разработка</td><td><span class="placeholder">[N нед]</span></td><td>Реализация согласованных модулей</td><td>Работающая версия в Telegram</td></tr>
+    <tr><td>4. Проверка и запуск</td><td><span class="placeholder">[1 нед]</span></td><td>Тестирование, исправления, передача</td><td>Запуск для учеников</td></tr>
+  </table>
+  <p class="note">Вне объёма: <span class="placeholder">[3–5 пунктов, например, создание контента курсов, интеграции с CRM]</span>.</p>
+
+  <h2>6. Варианты</h2>
+  <table>
+    <tr><th></th><th>Foundation</th><th class="rec">Growth (рекомендуем)</th><th>Scale</th></tr>
+    <tr><td>Объём</td><td>Ядро: каталог, расписание, материалы, ДЗ</td><td class="rec">Всё из первой версии + оплата и доступ</td><td>Growth + ИИ-куратор и аналитика</td></tr>
+    <tr><td>Сроки</td><td><span class="placeholder">[длиннее]</span></td><td class="rec"><span class="placeholder">[стандарт]</span></td><td><span class="placeholder">[приоритетная очередь]</span></td></tr>
+    <tr><td>Поддержка</td><td>Базовая</td><td class="rec"><span class="placeholder">[30 дней после запуска]</span></td><td><span class="placeholder">[3 месяца]</span></td></tr>
+    <tr><td>Стоимость</td><td><span class="placeholder">[X × 0,75]</span></td><td class="rec"><b><span class="placeholder">[X]</span></b></td><td><span class="placeholder">[X × 1,4]</span></td></tr>
+  </table>
+  <p class="note">Окупаемость: <span class="placeholder">[одна фраза: например, если приложение добавит N оплат в месяц, вариант окупается за M месяцев]</span>.</p>
+
+  <h2>7. Почему мы</h2>
+  <ul>
+    <li><span class="placeholder">[Результат для школ, сформулированный как выгода]</span></li>
+    <li><span class="placeholder">[Опыт или подход]</span></li>
+    <li><span class="placeholder">[Кто в команде и за что отвечает]</span></li>
+  </ul>
+  <p class="note"><span class="placeholder">[Отзыв или кейс — только реальный. Если его нет, блок удалить.]</span></p>
+
+  <h2>8. Условия</h2>
+  <ul>
+    <li>Оплата: <span class="placeholder">[50% при подписании, 50% после сдачи]</span> или <span class="placeholder">[помесячно]</span>.</li>
+    <li>Права на код и материалы переходят заказчику после полной оплаты.</li>
+    <li>Расторжение: письменное предупреждение за 30 дней.</li>
+    <li>Ответственность ограничена суммой оплаченных услуг.</li>
+    <li><span class="note">Условия проверяются юристом до отправки.</span></li>
+  </ul>
+
+  <h2>9. Следующий шаг</h2>
+  <p>Подтвердить вариант и задачи первой версии до <span class="placeholder">[дата]</span>. Стартовый созвон в течение 5 рабочих дней после подписания. Созвон для обсуждения: <span class="placeholder">[дата и время]</span>.</p>
+
+  <div class="sig">
+    Санжар · <span class="placeholder">[телефон]</span> · <span class="placeholder">[почта или Telegram]</span>
+  </div>
+
+</div>
+</body>
+</html>
